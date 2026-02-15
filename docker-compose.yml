@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # خادم الموقع (Next.js)
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=${DATABASE_URL}
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: pnpm dev
+    networks:
+      - shamel_network
+
+  # بوت التيليجرام
+  telegram_bot:
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - MASTER_ADMIN_ID=${MASTER_ADMIN_ID}
+      - DATABASE_PATH=/app/bot_data.db
+      - WEBHOOK_URL=http://web:3000/api/telegram/webhook
+    volumes:
+      - ./bot:/app
+      - ./bot_data:/app
+    depends_on:
+      - web
+    networks:
+      - shamel_network
+
+networks:
+  shamel_network:
+    driver: bridge

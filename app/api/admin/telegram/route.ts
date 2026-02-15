@@ -1,0 +1,35 @@
+import { NextResponse } from "next/server"
+import { getTelegramSettings, updateTelegramSettings } from "@/lib/db-json"
+import { getAdminSession } from "@/lib/session"
+
+export async function GET() {
+  const admin = await getAdminSession()
+  if (!admin) {
+    return NextResponse.json({ success: false, error: "Admin access required" }, { status: 403 })
+  }
+
+  try {
+    const settings = await getTelegramSettings()
+    return NextResponse.json({ success: true, data: settings })
+  } catch (error) {
+    console.error("telegram settings GET error:", error)
+    return NextResponse.json({ success: false, error: "Internal server error" }, { status: 500 })
+  }
+}
+
+export async function PUT(request: Request) {
+  const admin = await getAdminSession()
+  if (!admin) {
+    return NextResponse.json({ success: false, error: "Admin access required" }, { status: 403 })
+  }
+
+  try {
+    const body = await request.json()
+    const { bot_token, channel_id, is_enabled } = body
+    await updateTelegramSettings({ bot_token: bot_token || "", channel_id: channel_id || "", is_enabled: is_enabled !== false })
+    return NextResponse.json({ success: true, message: "Telegram settings saved" })
+  } catch (error) {
+    console.error("telegram settings PUT error:", error)
+    return NextResponse.json({ success: false, error: "Internal server error" }, { status: 500 })
+  }
+}

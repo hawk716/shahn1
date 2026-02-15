@@ -1,0 +1,36 @@
+{
+  "apps": [
+    {
+      "name": "محفظة جيب",
+      "icon": "/images/apps/jeeb.png",
+      "currencies": [
+        "ريال يمني (قديم)",
+        "ريال سعودي",
+        "دولار"
+      ],
+      "min_transfer": 100,
+      "max_transfer": 100000,
+      "transfer_fee": 0,
+      "accounts": "1234"
+    },
+    {
+      "name": "بنك الكريمي",
+      "icon": "/images/apps/alkarimi.png",
+      "currencies": [
+        "ريال يمني (جديد)",
+        "ريال يمني (قديم)",
+        "ريال سعودي",
+        "دولار"
+      ],
+      "min_transfer": 100,
+      "max_transfer": 100000,
+      "transfer_fee": 100,
+      "accounts": {
+        "ريال يمني (جديد)": "1001",
+        "ريال يمني (قديم)": "1002",
+        "ريال سعودي": "1003",
+        "دولار": "1004"
+      }
+    }
+  ]
+}
