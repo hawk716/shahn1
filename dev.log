@@ -8,5 +8,109 @@
 
 ✓ Starting...
 ✓ Ready in 1264ms
-��ELIFECYCLE  Command failed.
-[?25h
+ HEAD /admin 200 in 2.4s (compile: 2.1s, render: 303ms)
+ GET /admin 200 in 71ms (compile: 6ms, render: 65ms)
+ GET /admin 200 in 71ms (compile: 6ms, render: 65ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/auth/me?portal=admin 200 in 143ms (compile: 114ms, render: 29ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 54ms (compile: 42ms, render: 12ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 11ms (compile: 3ms, render: 8ms)
+⚠ Cross origin request detected from 3000-ib4mu52y4epob4be5t9o5-f2e34ddc.us2.manus.computer to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 15ms (compile: 5ms, render: 11ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 15ms (compile: 4ms, render: 11ms)
+ POST /api/verify-payment 403 in 62ms (compile: 53ms, render: 9ms)
+ POST /api/create-payment-page 403 in 57ms (compile: 48ms, render: 9ms)
+ GET / 200 in 133ms (compile: 21ms, render: 112ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/auth/me 200 in 20ms (compile: 5ms, render: 15ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 58ms (compile: 46ms, render: 12ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 15ms (compile: 4ms, render: 11ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/settings 200 in 66ms (compile: 54ms, render: 12ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/settings 200 in 13ms (compile: 4ms, render: 10ms)
+ GET /admin 200 in 70ms (compile: 4ms, render: 66ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/auth/me?portal=admin 200 in 10ms (compile: 3ms, render: 7ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 9ms (compile: 2ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 9ms (compile: 3ms, render: 6ms)
+ POST /api/verify-payment 400 in 8ms (compile: 3ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/telegram 200 in 51ms (compile: 42ms, render: 9ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/telegram 200 in 10ms (compile: 2ms, render: 8ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ PUT /api/admin/telegram 200 in 16ms (compile: 3ms, render: 12ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/telegram 200 in 14ms (compile: 3ms, render: 10ms)
+ POST /api/verify-payment 401 in 7ms (compile: 3ms, render: 5ms)
+ POST /api/create-payment-page 401 in 9ms (compile: 3ms, render: 6ms)
+✓ Compiled in 179ms

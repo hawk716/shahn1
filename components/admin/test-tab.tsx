@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Send, Loader2, Plus, Link2, KeyRound } from "lucide-react"
+import { Send, Loader2, Plus, Link2, KeyRound, Hash } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 
 export function TestTab() {
@@ -18,12 +18,14 @@ export function TestTab() {
   const [verifyName, setVerifyName] = useState("مهند الرزامي")
   const [verifyAmount, setVerifyAmount] = useState("100")
   const [verifyApp, setVerifyApp] = useState("Jaib")
+  const [verifyRef, setVerifyRef] = useState("test-ref-123")
   const [verifyResult, setVerifyResult] = useState<string>("")
   const [verifyLoading, setVerifyLoading] = useState(false)
 
   const [pageName, setPageName] = useState("مهند الرزامي-711973018")
   const [pageAmount, setPageAmount] = useState("100")
   const [pageApp, setPageApp] = useState("Jaib")
+  const [pageRef, setPageRef] = useState("page-ref-456")
   const [pageResult, setPageResult] = useState<string>("")
   const [pageLoading, setPageLoading] = useState(false)
 
@@ -33,8 +35,7 @@ export function TestTab() {
       const res = await fetch("/api/ingest-messages", {
         method: "POST",
         headers: { 
-          "Content-Type": "application/json",
-          "x-api-key": apiKey 
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({ message: rawMessage }),
       })
@@ -56,7 +57,12 @@ export function TestTab() {
           "Content-Type": "application/json",
           "x-api-key": apiKey 
         },
-        body: JSON.stringify({ name: verifyName, amount: parseFloat(verifyAmount), app: verifyApp }),
+        body: JSON.stringify({ 
+          name: verifyName, 
+          amount: parseFloat(verifyAmount), 
+          app: verifyApp,
+          payment_ref: verifyRef
+        }),
       })
       const data = await res.json()
       setVerifyResult(JSON.stringify(data, null, 2))
@@ -76,7 +82,12 @@ export function TestTab() {
           "Content-Type": "application/json",
           "x-api-key": apiKey 
         },
-        body: JSON.stringify({ name: pageName, amount: pageAmount, app: pageApp }),
+        body: JSON.stringify({ 
+          name: pageName, 
+          amount: pageAmount, 
+          app: pageApp,
+          payment_ref: pageRef
+        }),
       })
       const data = await res.json()
       setPageResult(JSON.stringify(data, null, 2))
@@ -150,7 +161,7 @@ export function TestTab() {
           <h2 className="text-foreground font-semibold text-sm">{t("verifyPayment")}</h2>
         </div>
         <div className="p-4 space-y-3">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             <div>
               <label className={labelClass}>{t("name")}</label>
               <input value={verifyName} onChange={(e) => setVerifyName(e.target.value)} className={inputClass} dir="auto" />
@@ -162,6 +173,10 @@ export function TestTab() {
             <div>
               <label className={labelClass}>{t("app")}</label>
               <input value={verifyApp} onChange={(e) => setVerifyApp(e.target.value)} className={inputClass} />
+            </div>
+            <div>
+              <label className={labelClass}>{t("paymentRef")}</label>
+              <input value={verifyRef} onChange={(e) => setVerifyRef(e.target.value)} className={inputClass} />
             </div>
           </div>
           <button onClick={handleVerify} disabled={verifyLoading} className={btnClass}>
@@ -183,7 +198,7 @@ export function TestTab() {
           <h2 className="text-foreground font-semibold text-sm">{t("createPaymentPage")}</h2>
         </div>
         <div className="p-4 space-y-3">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             <div>
               <label className={labelClass}>{t("senderName")}</label>
               <input value={pageName} onChange={(e) => setPageName(e.target.value)} className={inputClass} dir="auto" />
@@ -195,6 +210,10 @@ export function TestTab() {
             <div>
               <label className={labelClass}>{t("app")}</label>
               <input value={pageApp} onChange={(e) => setPageApp(e.target.value)} className={inputClass} />
+            </div>
+            <div>
+              <label className={labelClass}>{t("paymentRef")}</label>
+              <input value={pageRef} onChange={(e) => setPageRef(e.target.value)} className={inputClass} />
             </div>
           </div>
           <button onClick={handleCreatePage} disabled={pageLoading} className={btnClass}>

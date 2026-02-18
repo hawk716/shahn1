@@ -56,7 +56,22 @@
       "created_at": "2026-02-18T10:42:49.316Z"
     }
   ],
-  "verification_logs": [],
+  "verification_logs": [
+    {
+      "id": 1,
+      "requested_name": "مهند الرزامي",
+      "requested_amount": 100,
+      "requested_app": "Jaib",
+      "matched_payment_id": null,
+      "success": 0,
+      "failure_reason": "Missing required fields: name, amount, app, payment_ref",
+      "credited_balance": null,
+      "api_key_used": "e54636039f47ec79c03cd7ab6ce36ea7dac6cc67b43b382fc83175bd0a598406",
+      "user_id": 2,
+      "payment_ref": null,
+      "created_at": "2026-02-18T23:57:21.714Z"
+    }
+  ],
   "payment_pages": [],
   "settings": [
     {
@@ -77,7 +92,7 @@
       "notification_chat_id": "8083596989",
       "is_enabled": 1,
       "created_at": "2026-02-18T10:31:48.053Z",
-      "updated_at": "2026-02-18T10:39:11.119Z"
+      "updated_at": "2026-02-18T23:57:35.246Z"
     }
   ],
   "email_verifications": [],
