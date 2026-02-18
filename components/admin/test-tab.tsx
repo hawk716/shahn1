@@ -1,12 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import { Send, Loader2, Plus, Link2 } from "lucide-react"
+import { Send, Loader2, Plus, Link2, KeyRound } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 
 export function TestTab() {
   const { t } = useLocale()
 
+  const [apiKey, setApiKey] = useState("")
+  
   const [rawMessage, setRawMessage] = useState(
     "-> com.motorola.messaging:04-02-2026 12:36:48 - Jaib - اضيف 100ر.ي ... من مهند الرزامي-711973018"
   )
@@ -30,7 +32,10 @@ export function TestTab() {
     try {
       const res = await fetch("/api/ingest-messages", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "x-api-key": apiKey 
+        },
         body: JSON.stringify({ message: rawMessage }),
       })
       const data = await res.json()
@@ -47,7 +52,10 @@ export function TestTab() {
     try {
       const res = await fetch("/api/verify-payment", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "x-api-key": apiKey 
+        },
         body: JSON.stringify({ name: verifyName, amount: parseFloat(verifyAmount), app: verifyApp }),
       })
       const data = await res.json()
@@ -64,7 +72,10 @@ export function TestTab() {
     try {
       const res = await fetch("/api/create-payment-page", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "x-api-key": apiKey 
+        },
         body: JSON.stringify({ name: pageName, amount: pageAmount, app: pageApp }),
       })
       const data = await res.json()
@@ -84,6 +95,25 @@ export function TestTab() {
 
   return (
     <div className="space-y-4 sm:space-y-6">
+      {/* API Key Configuration */}
+      <div className="bg-card border border-border rounded-xl overflow-hidden">
+        <div className="p-4 border-b border-border flex items-center gap-2">
+          <KeyRound className="w-4 h-4 text-muted-foreground" />
+          <h2 className="text-foreground font-semibold text-sm">{t("apiKey")}</h2>
+        </div>
+        <div className="p-4">
+          <label className={labelClass}>{t("apiKey")}</label>
+          <input 
+            value={apiKey} 
+            onChange={(e) => setApiKey(e.target.value)} 
+            className={`${inputClass} font-mono`} 
+            placeholder="أدخل مفتاح API للاختبار..."
+            dir="ltr"
+          />
+          <p className="text-muted-foreground/60 text-xs mt-1">{t("apiKeyHint")}</p>
+        </div>
+      </div>
+
       {/* Ingest Messages */}
       <div className="bg-card border border-border rounded-xl overflow-hidden">
         <div className="p-4 border-b border-border flex items-center gap-2">
