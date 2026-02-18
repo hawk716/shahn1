@@ -25,8 +25,18 @@ export async function PUT(request: Request) {
 
   try {
     const body = await request.json()
-    const { bot_token, channel_id, is_enabled } = body
-    await updateTelegramSettings({ bot_token: bot_token || "", channel_id: channel_id || "", is_enabled: is_enabled !== false })
+    const { apiId, apiHash, chatId, sessionString, bot_token, notification_chat_id } = body
+    
+    await updateTelegramSettings({ 
+      apiId, 
+      apiHash, 
+      chatId, 
+      sessionString,
+      bot_token,
+      notification_chat_id,
+      is_enabled: true 
+    })
+    
     return NextResponse.json({ success: true, message: "Telegram settings saved" })
   } catch (error) {
     console.error("telegram settings PUT error:", error)

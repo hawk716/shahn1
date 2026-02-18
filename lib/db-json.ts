@@ -318,22 +318,39 @@ export async function getTelegramSettings() {
   return db.telegram_settings[0] || null;
 }
 
-export async function updateTelegramSettings(data: { bot_token: string; channel_id: string; is_enabled: boolean }) {
+export async function updateTelegramSettings(data: { 
+  apiId?: string; 
+  apiHash?: string; 
+  chatId?: string; 
+  sessionString?: string;
+  bot_token?: string; 
+  notification_chat_id?: string;
+  is_enabled?: boolean;
+}) {
   const db = loadDb();
   if (db.telegram_settings.length === 0) {
     db.telegram_settings.push({
       id: 1,
-      bot_token: data.bot_token,
-      channel_id: data.channel_id,
-      is_enabled: data.is_enabled ? 1 : 0,
+      apiId: data.apiId || "",
+      apiHash: data.apiHash || "",
+      chatId: data.chatId || "",
+      sessionString: data.sessionString || "",
+      bot_token: data.bot_token || "",
+      notification_chat_id: data.notification_chat_id || "",
+      is_enabled: data.is_enabled !== false ? 1 : 0,
       created_at: new Date().toISOString(),
     });
   } else {
     db.telegram_settings[0] = {
       ...db.telegram_settings[0],
-      bot_token: data.bot_token,
-      channel_id: data.channel_id,
-      is_enabled: data.is_enabled ? 1 : 0,
+      apiId: data.apiId !== undefined ? data.apiId : db.telegram_settings[0].apiId,
+      apiHash: data.apiHash !== undefined ? data.apiHash : db.telegram_settings[0].apiHash,
+      chatId: data.chatId !== undefined ? data.chatId : db.telegram_settings[0].chatId,
+      sessionString: data.sessionString !== undefined ? data.sessionString : db.telegram_settings[0].sessionString,
+      bot_token: data.bot_token !== undefined ? data.bot_token : db.telegram_settings[0].bot_token,
+      notification_chat_id: data.notification_chat_id !== undefined ? data.notification_chat_id : db.telegram_settings[0].notification_chat_id,
+      is_enabled: data.is_enabled !== undefined ? (data.is_enabled ? 1 : 0) : db.telegram_settings[0].is_enabled,
+      updated_at: new Date().toISOString(),
     };
   }
   saveDb();

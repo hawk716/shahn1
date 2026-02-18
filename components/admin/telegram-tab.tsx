@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useCallback } from "react"
-import { Save, Loader2, RefreshCw, Radio, Hash, KeyRound, MessageSquare } from "lucide-react"
+import { Save, Loader2, RefreshCw, Radio, Hash, KeyRound, MessageSquare, Bell } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 
 export function TelegramTab() {
@@ -9,6 +9,8 @@ export function TelegramTab() {
   const [apiHash, setApiHash] = useState("")
   const [chatId, setChatId] = useState("")
   const [sessionString, setSessionString] = useState("")
+  const [botToken, setBotToken] = useState("")
+  const [notificationChatId, setNotificationChatId] = useState("")
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState("")
@@ -19,11 +21,13 @@ export function TelegramTab() {
     try {
       const res = await fetch("/api/admin/telegram")
       const data = await res.json()
-      if (data.success) {
+      if (data.success && data.data) {
         setApiId(data.data.apiId || "")
         setApiHash(data.data.apiHash || "")
         setChatId(data.data.chatId || "")
         setSessionString(data.data.sessionString || "")
+        setBotToken(data.data.bot_token || "")
+        setNotificationChatId(data.data.notification_chat_id || "")
       }
     } catch (err) {
       console.error("Failed to fetch telegram settings:", err)
@@ -43,11 +47,20 @@ export function TelegramTab() {
       const res = await fetch("/api/admin/telegram", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ apiId, apiHash, chatId, sessionString }),
+        body: JSON.stringify({ 
+          apiId, 
+          apiHash, 
+          chatId, 
+          sessionString,
+          bot_token: botToken,
+          notification_chat_id: notificationChatId
+        }),
       })
       const data = await res.json()
       if (data.success) {
         setMessage(t("telegramSettingsSaved"))
+        // Refresh to ensure data is consistent with server
+        fetchSettings()
       } else {
         setMessage(`${t("error")}: ${data.error}`)
       }
@@ -149,6 +162,50 @@ export function TelegramTab() {
               placeholder="1BQANOTEuMT..."
             />
             <p className="text-muted-foreground/60 text-xs mt-1">{t("telegramSessionStringHint")}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Withdrawal Notification Settings */}
+      <div className="bg-card border border-border rounded-xl overflow-hidden">
+        <div className="p-4 border-b border-border flex items-center gap-2">
+          <Bell className="w-4 h-4 text-muted-foreground" />
+          <h2 className="text-foreground font-semibold text-sm">{t("withdrawalNotifications")}</h2>
+        </div>
+        <div className="p-4 space-y-4">
+          <div>
+            <label className={labelClass}>
+              <span className="inline-flex items-center gap-1">
+                <KeyRound className="w-3 h-3" />
+                {t("botToken")}
+              </span>
+            </label>
+            <input
+              value={botToken}
+              onChange={(e) => setBotToken(e.target.value)}
+              className={`${inputClass} font-mono`}
+              dir="ltr"
+              type="password"
+              placeholder="1234567890:ABCdef..."
+            />
+            <p className="text-muted-foreground/60 text-xs mt-1">{t("botTokenHint")}</p>
+          </div>
+
+          <div>
+            <label className={labelClass}>
+              <span className="inline-flex items-center gap-1">
+                <Hash className="w-3 h-3" />
+                {t("notificationChatId")}
+              </span>
+            </label>
+            <input
+              value={notificationChatId}
+              onChange={(e) => setNotificationChatId(e.target.value)}
+              className={`${inputClass} font-mono`}
+              dir="ltr"
+              placeholder="123456789"
+            />
+            <p className="text-muted-foreground/60 text-xs mt-1">{t("notificationChatIdHint")}</p>
           </div>
 
           {message && (

@@ -102,6 +102,11 @@ export const translations = {
     saveTelegramSettings: "حفظ إعدادات تيليجرام",
     telegramSettingsSaved: "تم حفظ إعدادات تيليجرام",
     telegramConnection: "اتصال تيليجرام",
+    withdrawalNotifications: "إشعارات السحب",
+    botToken: "توكن البوت (Bot Token)",
+    notificationChatId: "معرف محادثة الإشعارات (Notification Chat ID)",
+    botTokenHint: "توكن البوت الذي سيرسل إشعارات السحب",
+    notificationChatIdHint: "المعرف الذي ستصله إشعارات طلبات السحب",
 
     // Settings tab
     systemSettings: "إعدادات النظام",
@@ -306,6 +311,11 @@ export const translations = {
     saveTelegramSettings: "Save Telegram Settings",
     telegramSettingsSaved: "Telegram settings saved",
     telegramConnection: "Telegram Connection",
+    withdrawalNotifications: "Withdrawal Notifications",
+    botToken: "Bot Token",
+    notificationChatId: "Notification Chat ID",
+    botTokenHint: "The bot token that will send withdrawal notifications",
+    notificationChatIdHint: "The ID where withdrawal request notifications will be sent",
 
     // Settings tab
     systemSettings: "System Settings",
