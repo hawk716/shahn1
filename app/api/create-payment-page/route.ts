@@ -9,11 +9,11 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json()
-    const { name, amount, app, payment_ref } = body
+    const { payment_ref } = body
 
-    if (!name || !amount || !app || !payment_ref) {
+    if (!payment_ref) {
       return NextResponse.json(
-        { success: false, error: "Missing required fields: name, amount, app, payment_ref" },
+        { success: false, error: "Missing required field: payment_ref" },
         { status: 400 }
       )
     }
@@ -21,11 +21,13 @@ export async function POST(request: NextRequest) {
     const pageId = randomUUID()
     const userId = auth.user.id as number
 
+    // Create a "blank" payment page that only has the payment_ref and user_id
+    // The user will fill in name, amount, and app later on the page itself
     await createPaymentPage({
       id: pageId,
-      sender_name: name,
-      amount: parseFloat(amount),
-      app_name: app,
+      sender_name: "", // Will be filled by user
+      amount: 0,       // Will be filled by user
+      app_name: "",    // Will be filled by user
       payment_ref,
       user_id: userId,
     })
@@ -43,9 +45,6 @@ export async function POST(request: NextRequest) {
       data: {
         page_id: pageId,
         payment_url: paymentUrl,
-        name,
-        amount: parseFloat(amount),
-        app,
         payment_ref,
       },
     })

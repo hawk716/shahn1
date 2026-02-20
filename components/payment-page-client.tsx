@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Shield, CheckCircle2, XCircle, Loader2, CreditCard, User, Banknote, Smartphone } from "lucide-react"
+import { Shield, CheckCircle2, XCircle, Loader2, CreditCard, User, Banknote, Smartphone, Info } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 import { Toolbar } from "@/components/toolbar"
 
@@ -25,9 +25,9 @@ type VerifyResult = {
 
 export function PaymentPageClient({
   pageId,
-  senderName,
-  amount,
-  appName,
+  senderName: initialSenderName,
+  amount: initialAmount,
+  appName: initialAppName,
   status: initialStatus,
 }: PaymentPageClientProps) {
   const [loading, setLoading] = useState(false)
@@ -35,7 +35,17 @@ export function PaymentPageClient({
   const [status, setStatus] = useState(initialStatus)
   const { t } = useLocale()
 
+  // Form states
+  const [senderName, setSenderName] = useState(initialSenderName || "")
+  const [amount, setAmount] = useState(initialAmount > 0 ? initialAmount.toString() : "")
+  const [appName, setAppName] = useState(initialAppName || "")
+
   async function handleVerify() {
+    if (!senderName || !amount || !appName) {
+      setResult({ success: false, error: t("fillAllFields") || "يرجى ملء جميع الحقول" })
+      return
+    }
+
     setLoading(true)
     setResult(null)
 
@@ -43,7 +53,12 @@ export function PaymentPageClient({
       const response = await fetch("/api/page-verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ page_id: pageId }),
+        body: JSON.stringify({ 
+          page_id: pageId,
+          name: senderName,
+          amount: parseFloat(amount),
+          app: appName
+        }),
       })
 
       const data = await response.json()
@@ -60,6 +75,7 @@ export function PaymentPageClient({
   }
 
   const isCompleted = status === "completed"
+  const isFormDisabled = loading || isCompleted || (result?.success === true)
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -73,17 +89,17 @@ export function PaymentPageClient({
         </div>
 
         {/* Card */}
-        <div className="relative bg-card border border-border rounded-2xl overflow-hidden">
+        <div className="relative bg-card border border-border rounded-2xl overflow-hidden shadow-xl">
           {/* Top accent line */}
-          <div className="h-1 bg-gradient-to-r from-border via-foreground/20 to-border" />
+          <div className="h-1.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
 
           {/* Header */}
-          <div className="p-6 pb-4 flex items-center gap-3 border-b border-border">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-secondary border border-border">
-              <Shield className="w-5 h-5 text-muted-foreground" />
+          <div className="p-6 pb-4 flex items-center gap-3 border-b border-border bg-muted/30">
+            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20">
+              <Shield className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-foreground text-lg font-semibold">
+              <h1 className="text-foreground text-xl font-bold">
                 {t("confirmPayment")}
               </h1>
               <p className="text-muted-foreground text-sm">
@@ -92,45 +108,69 @@ export function PaymentPageClient({
             </div>
           </div>
 
-          {/* Payment details */}
-          <div className="p-6 space-y-4">
-            {/* Sender */}
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-background border border-border">
-              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-secondary">
-                <User className="w-4 h-4 text-muted-foreground" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-muted-foreground text-xs">{t("senderNameLabel")}</p>
-                <p className="text-foreground text-sm font-semibold truncate">
-                  {senderName}
-                </p>
+          {/* Instructions */}
+          {!isCompleted && (
+            <div className="px-6 pt-4">
+              <div className="flex items-start gap-2 p-3 rounded-lg bg-blue-500/5 border border-blue-500/10 text-blue-600 dark:text-blue-400 text-xs">
+                <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <p>يرجى إدخال بيانات التحويل التي قمت بها بدقة ليتمكن النظام من التحقق منها آلياً.</p>
               </div>
             </div>
+          )}
 
-            {/* Amount */}
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-background border border-border">
-              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-secondary">
-                <Banknote className="w-4 h-4 text-muted-foreground" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-muted-foreground text-xs">{t("amountLabel")}</p>
-                <p className="text-foreground text-sm font-semibold">
-                  {amount.toLocaleString()} {t("yer")}
-                </p>
-              </div>
+          {/* Payment details form */}
+          <div className="p-6 space-y-5">
+            {/* Sender Name Input */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5 px-1">
+                <User className="w-3.5 h-3.5" />
+                {t("senderNameLabel")}
+              </label>
+              <input
+                type="text"
+                value={senderName}
+                onChange={(e) => setSenderName(e.target.value)}
+                disabled={isFormDisabled}
+                placeholder="أدخل اسم المحول كما يظهر في الإشعار"
+                className="w-full px-4 py-2.5 rounded-xl bg-background border border-border focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all disabled:opacity-60"
+              />
             </div>
 
-            {/* App */}
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-background border border-border">
-              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-secondary">
-                <Smartphone className="w-4 h-4 text-muted-foreground" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-muted-foreground text-xs">{t("paymentApp")}</p>
-                <p className="text-foreground text-sm font-semibold">
-                  {appName}
-                </p>
-              </div>
+            {/* Amount Input */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5 px-1">
+                <Banknote className="w-3.5 h-3.5" />
+                {t("amountLabel")} ({t("yer")})
+              </label>
+              <input
+                type="number"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                disabled={isFormDisabled}
+                placeholder="0.00"
+                className="w-full px-4 py-2.5 rounded-xl bg-background border border-border focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all disabled:opacity-60"
+              />
+            </div>
+
+            {/* App Name Select/Input */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5 px-1">
+                <Smartphone className="w-3.5 h-3.5" />
+                {t("paymentApp")}
+              </label>
+              <select
+                value={appName}
+                onChange={(e) => setAppName(e.target.value)}
+                disabled={isFormDisabled}
+                className="w-full px-4 py-2.5 rounded-xl bg-background border border-border focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all disabled:opacity-60 appearance-none"
+              >
+                <option value="">اختر التطبيق</option>
+                <option value="Jaib">جيب (Jaib)</option>
+                <option value="Kuraimi">الكريمي (Kuraimi)</option>
+                <option value="OneCash">ون كاش (OneCash)</option>
+                <option value="M-Mocha">إم موكا (M-Mocha)</option>
+                <option value="Other">آخر</option>
+              </select>
             </div>
           </div>
 
@@ -138,21 +178,21 @@ export function PaymentPageClient({
           {result && (
             <div className="px-6 pb-4">
               {result.success ? (
-                <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20">
+                <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 animate-in fade-in zoom-in duration-300">
                   <div className="flex items-center gap-2 mb-2">
                     <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <p className="text-green-500 font-semibold text-sm">
+                    <p className="text-green-500 font-bold text-sm">
                       {t("verifiedSuccessfully")}
                     </p>
                   </div>
                   <div className="space-y-1 text-sm">
                     <p className="text-muted-foreground">
                       {t("creditedBalance")}:{" "}
-                      <span className="text-foreground font-semibold">
+                      <span className="text-foreground font-bold text-lg">
                         {result.data?.credited_balance?.toLocaleString()}
                       </span>
                     </p>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-xs">
                       {t("exchangeRateLabel")}:{" "}
                       <span className="text-foreground">
                         {result.data?.exchange_rate}
@@ -161,10 +201,10 @@ export function PaymentPageClient({
                   </div>
                 </div>
               ) : (
-                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20">
+                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 animate-in fade-in slide-in-from-top-2 duration-300">
                   <div className="flex items-center gap-2 mb-1">
                     <XCircle className="w-5 h-5 text-red-500" />
-                    <p className="text-red-500 font-semibold text-sm">
+                    <p className="text-red-500 font-bold text-sm">
                       {t("verificationFailed")}
                     </p>
                   </div>
@@ -179,35 +219,35 @@ export function PaymentPageClient({
           {/* Action button */}
           <div className="p-6 pt-2">
             {isCompleted && !result ? (
-              <div className="flex items-center justify-center gap-2 p-3 rounded-xl bg-green-500/10 border border-green-500/20">
-                <CheckCircle2 className="w-5 h-5 text-green-500" />
-                <p className="text-green-500 font-semibold text-sm">
+              <div className="flex items-center justify-center gap-2 p-4 rounded-xl bg-green-500/10 border border-green-500/20">
+                <CheckCircle2 className="w-6 h-6 text-green-500" />
+                <p className="text-green-500 font-bold">
                   {t("alreadyVerified")}
                 </p>
               </div>
             ) : (
               <button
                 onClick={handleVerify}
-                disabled={loading || (result?.success === true)}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl 
-                  bg-primary text-primary-foreground font-semibold text-sm
-                  hover:bg-primary/90 transition-all duration-200
+                disabled={isFormDisabled}
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl 
+                  bg-primary text-primary-foreground font-bold text-base shadow-lg shadow-primary/20
+                  hover:bg-primary/90 hover:shadow-primary/30 transition-all duration-200
                   disabled:opacity-40 disabled:cursor-not-allowed
                   active:scale-[0.98]"
               >
                 {loading ? (
                   <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <Loader2 className="w-5 h-5 animate-spin" />
                     {t("verifying")}
                   </>
                 ) : result?.success ? (
                   <>
-                    <CheckCircle2 className="w-4 h-4" />
+                    <CheckCircle2 className="w-5 h-5" />
                     {t("verified")}
                   </>
                 ) : (
                   <>
-                    <CreditCard className="w-4 h-4" />
+                    <CreditCard className="w-5 h-5" />
                     {t("confirmPaymentBtn")}
                   </>
                 )}
@@ -216,8 +256,8 @@ export function PaymentPageClient({
           </div>
 
           {/* Footer */}
-          <div className="px-6 pb-4 text-center">
-            <p className="text-muted-foreground/60 text-xs">
+          <div className="px-6 pb-6 text-center">
+            <p className="text-muted-foreground/60 text-[10px] uppercase tracking-wider font-medium">
               {t("autoVerificationSystem")}
             </p>
           </div>

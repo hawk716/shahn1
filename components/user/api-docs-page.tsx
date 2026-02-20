@@ -20,6 +20,25 @@ export function ApiDocsPage({ apiKey }: ApiDocsPageProps) {
 
   const baseUrl = typeof window !== "undefined" ? window.location.origin : "https://your-domain.com"
 
+  const createPageExample = `POST ${baseUrl}/api/create-payment-page
+Headers:
+  Content-Type: application/json
+  x-api-key: ${apiKey || "YOUR_API_KEY"}
+
+Body:
+{
+  "payment_ref": "order_12345"
+}`
+
+  const createPageResponse = `{
+  "success": true,
+  "data": {
+    "page_id": "550e8400-e29b-41d4-a716-446655440000",
+    "payment_url": "${baseUrl}/pay/550e8400-e29b-41d4-a716-446655440000",
+    "payment_ref": "order_12345"
+  }
+}`
+
   const verifyExample = `POST ${baseUrl}/api/verify-payment
 Headers:
   Content-Type: application/json
@@ -125,17 +144,30 @@ print_r($data);`
   }
 }`
 
-  const callbackExample = `// Callback sent to your callback_url after successful payment:
-POST your-callback-url.com/webhook
+  const callbackExample = `// سيتم إرسال هذا الطلب إلى رابط الـ Callback الخاص بك تلقائياً:
+POST your-server.com/webhook
 
-Body:
+Body (نجاح):
 {
   "event": "payment_verified",
   "payment_ref": "order_12345",
   "payment_id": 42,
+  "page_id": "550e8400...",
   "amount": 500,
   "credited_balance": 5000,
   "sender_name": "محمد احمد",
+  "app_name": "Jaib",
+  "timestamp": "2026-02-06T14:30:00.000Z"
+}
+
+Body (فشل):
+{
+  "event": "payment_failed",
+  "payment_ref": "order_12345",
+  "page_id": "550e8400...",
+  "error": "No matching unused payment found",
+  "sender_name": "محمد احمد",
+  "amount": 500,
   "app_name": "Jaib",
   "timestamp": "2026-02-06T14:30:00.000Z"
 }`
@@ -170,10 +202,56 @@ Body:
         </div>
       </div>
 
-      {/* Endpoint Info */}
+      {/* Endpoint 1: Create Payment Page */}
       <div className="bg-card border border-border rounded-xl overflow-hidden">
         <div className="p-4 border-b border-border">
-          <h2 className="text-foreground font-semibold text-sm">{t("verifyPayment")}</h2>
+          <h2 className="text-foreground font-semibold text-sm">1. إنشاء رابط دفع (جديد)</h2>
+        </div>
+        <div className="p-4 space-y-4">
+          <div className="flex flex-wrap gap-3">
+            <div className="px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-500/20 text-green-500 text-sm font-mono font-bold">
+              POST
+            </div>
+            <div className="px-3 py-1.5 rounded-lg bg-background border border-border text-foreground text-sm font-mono" dir="ltr">
+              /api/create-payment-page
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-foreground font-medium text-sm mb-2">{t("parameters")}</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-background">
+                    <th className="text-start px-3 py-2 text-muted-foreground font-medium">{t("name")}</th>
+                    <th className="text-start px-3 py-2 text-muted-foreground font-medium">Type</th>
+                    <th className="text-start px-3 py-2 text-muted-foreground font-medium">Required</th>
+                    <th className="text-start px-3 py-2 text-muted-foreground font-medium">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-border">
+                    <td className="px-3 py-2 font-mono text-foreground">payment_ref</td>
+                    <td className="px-3 py-2 text-muted-foreground">string</td>
+                    <td className="px-3 py-2"><span className="text-red-500 text-xs font-medium">required</span></td>
+                    <td className="px-3 py-2 text-muted-foreground">{t("paramPaymentRef")}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <CodeBlock code={createPageExample} id="create-req" label="Request Body" />
+            <CodeBlock code={createPageResponse} id="create-res" label="Response (Success)" />
+          </div>
+        </div>
+      </div>
+
+      {/* Endpoint 2: Direct Verification */}
+      <div className="bg-card border border-border rounded-xl overflow-hidden">
+        <div className="p-4 border-b border-border">
+          <h2 className="text-foreground font-semibold text-sm">2. {t("verifyPayment")} (Direct API)</h2>
         </div>
         <div className="p-4 space-y-4">
           <div className="flex flex-wrap gap-3">
@@ -274,7 +352,7 @@ Body:
         </div>
         <div className="p-4 space-y-3">
           <p className="text-muted-foreground text-sm">
-            {t("apiDocsIntro")}
+            عند استخدام رابط الدفع، سيقوم نظامنا بإرسال طلب POST تلقائياً إلى رابط الـ Callback الخاص بك لإبلاغ سيرفرك بنتيجة العملية.
           </p>
           <CodeBlock code={callbackExample} id="callback" label="Callback POST" />
         </div>

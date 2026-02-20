@@ -289,6 +289,17 @@ export async function updatePaymentPageStatus(id: string, status: string) {
   }
 }
 
+export async function updatePaymentPageData(id: string, data: { sender_name?: string; amount?: number; app_name?: string }) {
+  const db = loadDb();
+  const page = db.payment_pages.find((p) => p.id === id);
+  if (page) {
+    if (data.sender_name !== undefined) page.sender_name = data.sender_name;
+    if (data.amount !== undefined) page.amount = data.amount;
+    if (data.app_name !== undefined) page.app_name = data.app_name;
+    saveDb();
+  }
+}
+
 // ─── SETTINGS ─────────────────────��─────────────────────
 export async function getSetting(key: string) {
   const db = loadDb();
