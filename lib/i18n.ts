@@ -39,6 +39,7 @@ export const translations = {
     myBalance: "رصيدي",
     myApiKey: "مفتاح API",
     withdrawal: "سحب المبلغ",
+    transfer: "التحويل",
     myRequests: "طلباتي",
     apiDocs: "توثيق API",
 
@@ -248,6 +249,7 @@ export const translations = {
     myBalance: "My Balance",
     myApiKey: "API Key",
     withdrawal: "Withdraw",
+    transfer: "Transfer",
     myRequests: "My Requests",
     apiDocs: "API Docs",
 

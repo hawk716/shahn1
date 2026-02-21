@@ -3,9 +3,7 @@ import path from "path";
 import { randomBytes } from "crypto";
 
 // استخدم /tmp في Vercel أو production، و data في local development
-const DB_PATH = process.env.NODE_ENV === "production" 
-  ? path.join("/tmp", "db.json")
-  : path.join(process.cwd(), "data", "db.json");
+const DB_PATH = path.join("/home/ubuntu/shahn1/data", "db.json");
 
 interface Database {
   users: any[];
@@ -143,6 +141,24 @@ export async function updateUserBalance(userId: number, balance: number) {
     user.balance = balance;
     saveDb();
   }
+}
+
+export async function transferBalance(fromUserId: number, toUsername: string, amount: number) {
+  const db = loadDb();
+  const fromUser = db.users.find((u) => u.id === fromUserId);
+  const toUser = db.users.find((u) => u.username.toLowerCase() === toUsername.toLowerCase());
+
+  if (!fromUser) throw new Error("المرسل غير موجود");
+  if (!toUser) throw new Error("المستلم غير موجود");
+  if (fromUser.id === toUser.id) throw new Error("لا يمكنك التحويل لنفسك");
+  if (fromUser.balance < amount) throw new Error("رصيد غير كافٍ");
+
+  fromUser.balance -= amount;
+  toUser.balance += amount;
+  
+  // تسجيل العملية في السجلات (اختياري، سنستخدم سجلات التحقق مؤقتاً أو نكتفي بتحديث الرصيد)
+  saveDb();
+  return { fromBalance: fromUser.balance, toBalance: toUser.balance };
 }
 
 export async function regenerateApiKey(userId: number) {

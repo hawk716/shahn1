@@ -16,6 +16,7 @@ interface UserSidebarProps {
 const pages: { id: string; labelKey: TranslationKey; icon: typeof LayoutDashboard }[] = [
   { id: "dashboard", labelKey: "dashboard", icon: LayoutDashboard },
   { id: "withdrawal", labelKey: "withdrawal", icon: Send },
+  { id: "transfer", labelKey: "transfer" as any, icon: Send },
   { id: "api-key", labelKey: "myApiKey", icon: Key },
   { id: "requests", labelKey: "myRequests", icon: ScrollText },
   { id: "docs", labelKey: "apiDocs", icon: BookOpen },

@@ -26,6 +26,7 @@ import {
   updateTelegramSettings as updateTelegramSettingsJson,
   getSetting as getSettingJson,
   setSetting as setSettingJson,
+  transferBalance as transferBalanceJson,
 } from "./db-json"
 
 export function getDb() {
@@ -68,6 +69,10 @@ export async function getAllUsers() {
 
 export async function updateUserBalance(userId: number, amount: number) {
   return updateUserBalanceJson(userId, amount)
+}
+
+export async function transferBalance(fromUserId: number, toUsername: string, amount: number) {
+  return transferBalanceJson(fromUserId, toUsername, amount)
 }
 
 export async function deleteUser(userId: number) {

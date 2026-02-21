@@ -8,6 +8,7 @@ import { UserApiKey } from "./user/user-api-key"
 import { UserRequests } from "./user/user-requests"
 import { ApiDocsPage } from "./user/api-docs-page"
 import { WithdrawalForm } from "./withdrawal/withdrawal-form"
+import { TransferForm } from "./user/transfer-form"
 
 interface UserSession {
   id: number
@@ -100,6 +101,7 @@ export function UserPortal() {
         <div className="max-w-5xl mx-auto">
           {activePage === "dashboard" && <UserDashboard user={user} />}
           {activePage === "withdrawal" && <WithdrawalForm userId={user.id} />}
+          {activePage === "transfer" && <TransferForm />}
           {activePage === "api-key" && <UserApiKey user={user} onUpdate={checkSession} />}
           {activePage === "requests" && <UserRequests />}
           {activePage === "docs" && <ApiDocsPage apiKey={user.api_key} />}
