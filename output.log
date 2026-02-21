@@ -105,3 +105,23 @@
 [v0] getUserById - Total users: 2
 [v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
 [v0] getUserById - Found user: null
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 2
+[v0] getUserById - User IDs in DB: [ { id: 1, username: 'test' }, { id: 2, username: 'moatsem' } ]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
