@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     }
 
     if (fromUser.balance < numericAmount) {
-      return NextResponse.json({ success: false, error: "رصيدك غير كافٍ لإتمام هذه العملية" }, { status: 400 })
+      return NextResponse.json({ success: false, error: "رصيدك بالريال غير كافٍ لإتمام هذه العملية" }, { status: 400 })
     }
 
     // التحقق من وجود المستلم

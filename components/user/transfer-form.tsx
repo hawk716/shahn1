@@ -89,7 +89,7 @@ export function TransferForm() {
         </div>
         <h2 className="text-2xl font-bold text-foreground mb-3">تمت العملية بنجاح</h2>
         <p className="text-muted-foreground mb-8 text-lg">
-          تم تحويل <span className="text-primary font-bold">{parseFloat(amount).toLocaleString()}</span> رصيد إلى <span className="text-foreground font-semibold">{toUsername}</span>.
+          تم تحويل <span className="text-primary font-bold">{parseFloat(amount).toLocaleString()}</span> ريال إلى <span className="text-foreground font-semibold">{toUsername}</span>.
         </p>
         <button
           onClick={() => {
@@ -161,7 +161,7 @@ export function TransferForm() {
                   className="w-full bg-background border border-border rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all group-hover:border-primary/50 font-mono"
                   required
                 />
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-xs font-bold bg-secondary/50 px-2 py-1 rounded-md">رصيد</span>
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-xs font-bold bg-secondary/50 px-2 py-1 rounded-md">ريال</span>
               </div>
             </div>
           </div>
@@ -211,7 +211,7 @@ export function TransferForm() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground text-sm">المبلغ الإجمالي</span>
-                  <span className="font-bold text-primary text-lg">{parseFloat(amount).toLocaleString()} رصيد</span>
+                  <span className="font-bold text-primary text-lg">{parseFloat(amount).toLocaleString()} ريال</span>
                 </div>
               </div>
 
