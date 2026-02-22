@@ -7,9 +7,9 @@ import { sendWithdrawalConfirmationEmail } from '@/lib/email-service-gmail'
 
 export async function POST(request: Request) {
   try {
-    const { userId, appName, currency, amount, accountNumber, username, password } = await request.json()
+    const { userId, appName, currency, amount, accountNumber, password } = await request.json()
 
-    console.log('[v0] Withdrawal request received:', { userId, appName, username, amount })
+    console.log('[v0] Withdrawal request received:', { userId, appName, amount })
 
     // التحقق من المستخدم
     const user = await getUserById(userId)
@@ -18,15 +18,6 @@ export async function POST(request: Request) {
     if (!user) {
       console.error('[v0] User not found for ID:', userId)
       return NextResponse.json({ success: false, error: 'المستخدم غير موجود' }, { status: 404 })
-    }
-
-    // التحقق من اسم المستخدم المدخل
-    if (user.username !== username) {
-      return NextResponse.json({ 
-        success: false, 
-        error: 'اسم المستخدم غير صحيح. تأكد من اسم المستخدم أو كلمة المرور، ثم حاول مجدداً',
-        field: 'username'
-      }, { status: 401 })
     }
 
     // التحقق من كلمة المرور
@@ -95,7 +86,7 @@ export async function POST(request: Request) {
     }
 
     // حفظ السجل في db.json
-    const dbPath = path.join(process.cwd(), 'data', 'db.json')
+    const dbPath = path.join('/home/ubuntu/shahn1/data', 'db.json')
     const db = JSON.parse(fs.readFileSync(dbPath, 'utf-8'))
     if (!db.withdrawals) {
       db.withdrawals = []

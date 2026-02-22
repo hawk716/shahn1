@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { LayoutDashboard, Key, ScrollText, BookOpen, LogOut, User, Menu, X, Send } from "lucide-react"
+import { LayoutDashboard, Key, ScrollText, BookOpen, LogOut, User, Menu, X, Send, ArrowLeftRight } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 import { Toolbar } from "@/components/toolbar"
 import type { TranslationKey } from "@/lib/i18n"
@@ -16,7 +16,7 @@ interface UserSidebarProps {
 const pages: { id: string; labelKey: TranslationKey; icon: typeof LayoutDashboard }[] = [
   { id: "dashboard", labelKey: "dashboard", icon: LayoutDashboard },
   { id: "withdrawal", labelKey: "withdrawal", icon: Send },
-  { id: "transfer", labelKey: "transfer" as any, icon: Send },
+  { id: "transfer", labelKey: "transfer" as any, icon: ArrowLeftRight },
   { id: "api-key", labelKey: "myApiKey", icon: Key },
   { id: "requests", labelKey: "myRequests", icon: ScrollText },
   { id: "docs", labelKey: "apiDocs", icon: BookOpen },

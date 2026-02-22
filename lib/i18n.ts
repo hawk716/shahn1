@@ -38,8 +38,8 @@ export const translations = {
     // Tabs - User
     myBalance: "رصيدي",
     myApiKey: "مفتاح API",
-    withdrawal: "سحب المبلغ",
-    transfer: "التحويل",
+    withdrawal: "سحب نقدي",
+    transfer: "التحويل الى حساب عميل آخر",
     myRequests: "طلباتي",
     apiDocs: "توثيق API",
 
@@ -248,8 +248,8 @@ export const translations = {
     // Tabs - User
     myBalance: "My Balance",
     myApiKey: "API Key",
-    withdrawal: "Withdraw",
-    transfer: "Transfer",
+    withdrawal: "Cash Withdrawal",
+    transfer: "Transfer to another customer",
     myRequests: "My Requests",
     apiDocs: "API Docs",
 

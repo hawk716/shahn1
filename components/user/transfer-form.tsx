@@ -34,7 +34,7 @@ export function TransferForm() {
       const res = await fetch("/api/user/transfer/check", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ toUsername, amount: parseFloat(amount) }),
+        body: JSON.stringify({ toUsername: toUsername.trim(), amount: parseFloat(amount) }),
       })
 
       const data = await res.json()
@@ -64,7 +64,7 @@ export function TransferForm() {
       const res = await fetch("/api/user/transfer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ toUsername, amount: parseFloat(amount), password }),
+        body: JSON.stringify({ toUsername: toUsername.trim(), amount: parseFloat(amount), password }),
       })
 
       const data = await res.json()
@@ -114,8 +114,8 @@ export function TransferForm() {
             <Send className="w-6 h-6 text-primary" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">تحويل سريع</h1>
-            <p className="text-muted-foreground text-sm">أرسل الرصيد لأي مستخدم في ثوانٍ</p>
+            <h1 className="text-2xl font-bold text-foreground">التحويل الى حساب عميل آخر</h1>
+            <p className="text-muted-foreground text-sm">أرسل الرصيد لأي عميل في ثوانٍ</p>
           </div>
         </div>
       </div>
@@ -179,7 +179,7 @@ export function TransferForm() {
             ) : (
               <>
                 <Send className="w-5 h-5" />
-                متابعة التحويل
+                استمرار
               </>
             )}
           </button>

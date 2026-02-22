@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useCallback } from "react"
-import { RefreshCw, Wallet, CheckCircle2, XCircle, Banknote } from "lucide-react"
+import { RefreshCw, Wallet, CheckCircle2, XCircle, Banknote, LayoutDashboard } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 
 interface UserDashboardProps {
@@ -59,9 +59,16 @@ export function UserDashboard({ user }: UserDashboardProps) {
 
   return (
     <div className="space-y-4 sm:space-y-6">
-      <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-4 sm:p-6">
-        <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-1">أهلاً بك في حسابك</h1>
-        <p className="text-muted-foreground text-sm">مرحباً {user.username} - إدارة حسابك والإحصائيات الخاصة بك</p>
+      <div className="bg-gradient-to-br from-primary/15 via-primary/5 to-transparent border border-primary/20 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <div className="flex items-center gap-4 mb-2">
+          <div className="p-3 bg-primary/10 rounded-xl border border-primary/20">
+            <LayoutDashboard className="w-6 h-6 text-primary" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-foreground">{t("myBalance")}</h1>
+            <p className="text-muted-foreground text-sm">مرحباً {user.username} - إدارة حسابك والإحصائيات الخاصة بك</p>
+          </div>
+        </div>
       </div>
 
       <div className="flex items-center justify-between gap-2">

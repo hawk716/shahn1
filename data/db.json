@@ -23,6 +23,18 @@
       "email_verified": true,
       "created_at": "2026-02-18T09:27:51.184Z",
       "updated_at": "2026-02-18T09:27:51.185Z"
+    },
+    {
+      "id": 3,
+      "username": "nwaf",
+      "email": "mtsmalrzamy@gmail.com",
+      "password_hash": "8deea9ba8c2a8d43b9fe8e0a6f6c0c63:e5123842b6f8e8e8c47d35ebd5efceec2c67ac066f022507a199ab5c20c41fc7",
+      "role": "user",
+      "api_key": "acf471a3ff81a045924ec36d17e530f2442a2c50fee07d39fbb2af7eb1ee076c",
+      "balance": 0,
+      "email_verified": true,
+      "created_at": "2026-02-21T10:04:16.816Z",
+      "updated_at": "2026-02-21T10:04:16.816Z"
     }
   ],
   "sessions": [
@@ -60,6 +72,27 @@
       "token": "eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsInRzIjoxNzcxNTc3Mzg5NjM0fQ",
       "expires_at": "2026-02-27T08:49:49.635Z",
       "created_at": "2026-02-20T08:49:49.635Z"
+    },
+    {
+      "id": 6,
+      "user_id": 3,
+      "token": "eyJ1c2VySWQiOjMsInJvbGUiOiJ1c2VyIiwidHMiOjE3NzE2NjgyNzI4MzZ9",
+      "expires_at": "2026-02-28T10:04:32.837Z",
+      "created_at": "2026-02-21T10:04:32.837Z"
+    },
+    {
+      "id": 7,
+      "user_id": 3,
+      "token": "eyJ1c2VySWQiOjMsInJvbGUiOiJ1c2VyIiwidHMiOjE3NzE2NjgyNzY0MzR9",
+      "expires_at": "2026-02-28T10:04:36.434Z",
+      "created_at": "2026-02-21T10:04:36.435Z"
+    },
+    {
+      "id": 8,
+      "user_id": 2,
+      "token": "eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsInRzIjoxNzcxNjY4MjgzMzYwfQ",
+      "expires_at": "2026-02-28T10:04:43.360Z",
+      "created_at": "2026-02-21T10:04:43.360Z"
     }
   ],
   "payments": [
@@ -265,6 +298,29 @@
       "updated_at": "2026-02-18T23:57:35.246Z"
     }
   ],
-  "email_verifications": [],
-  "withdrawals": []
+  "email_verifications": [
+    {
+      "id": 1,
+      "user_id": 3,
+      "email": "mtsmalrzamy@gmail.com",
+      "token": "293b06c535836341667f72ae25928221cf069045a5b7a51469bf13b21d7c9a2a",
+      "is_verified": true,
+      "expires_at": "2026-02-22T10:04:16.817Z",
+      "created_at": "2026-02-21T10:04:16.817Z"
+    }
+  ],
+  "withdrawals": [
+    {
+      "id": 1771744902207,
+      "userId": 2,
+      "appName": "محفظة جيب",
+      "currency": "ريال يمني (قديم)",
+      "amount": 100,
+      "fee": 0,
+      "totalAmount": 100,
+      "accountNumber": "50",
+      "status": "pending",
+      "createdAt": "2026-02-22T07:21:42.207Z"
+    }
+  ]
 }
