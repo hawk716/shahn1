@@ -41,20 +41,27 @@ export function UserRequests() {
 
   return (
     <div className="space-y-4 sm:space-y-6">
-      <div className="flex items-center justify-between gap-2">
-        <div className="min-w-0">
-          <h1 className="text-foreground text-lg sm:text-xl font-bold">{t("myRequests")}</h1>
-          <p className="text-muted-foreground text-xs sm:text-sm">{t("recentRequests")}</p>
+      <div className="bg-gradient-to-br from-primary/15 via-primary/5 to-transparent border border-primary/20 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <div className="p-3 bg-primary/10 rounded-xl border border-primary/20">
+              <RefreshCw className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-foreground">{t("myRequests")}</h1>
+              <p className="text-muted-foreground text-sm">{t("recentRequests")}</p>
+            </div>
+          </div>
+          <button
+            onClick={fetchLogs}
+            disabled={loading}
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-background border border-border 
+              text-muted-foreground text-sm hover:text-foreground transition-all hover:border-primary/50 disabled:opacity-50 shadow-sm"
+          >
+            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+            {t("refresh")}
+          </button>
         </div>
-        <button
-          onClick={fetchLogs}
-          disabled={loading}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary border border-border 
-            text-muted-foreground text-xs hover:text-foreground transition-colors disabled:opacity-50"
-        >
-          <RefreshCw className={`w-3 h-3 ${loading ? "animate-spin" : ""}`} />
-          {t("refresh")}
-        </button>
       </div>
 
       <div className="bg-card border border-border rounded-xl overflow-hidden">

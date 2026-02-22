@@ -194,11 +194,15 @@ Body (فشل):
 
   return (
     <div className="space-y-4 sm:space-y-6">
-      <div className="flex items-center gap-2 sm:gap-3">
-        <BookOpen className="w-5 h-5 text-muted-foreground shrink-0" />
-        <div className="min-w-0">
-          <h1 className="text-foreground text-lg sm:text-xl font-bold">{t("apiDocumentation")}</h1>
-          <p className="text-muted-foreground text-xs sm:text-sm">{t("apiDocsIntro")}</p>
+      <div className="bg-gradient-to-br from-primary/15 via-primary/5 to-transparent border border-primary/20 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <div className="flex items-center gap-4 mb-2">
+          <div className="p-3 bg-primary/10 rounded-xl border border-primary/20">
+            <BookOpen className="w-6 h-6 text-primary" />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-foreground">{t("apiDocumentation")}</h1>
+            <p className="text-muted-foreground text-sm">{t("apiDocsIntro")}</p>
+          </div>
         </div>
       </div>
 
