@@ -134,7 +134,7 @@ export function UserDashboard({ user }: UserDashboardProps) {
               Autoplay({
                 delay: 5000,
                 stopOnInteraction: false,
-              })
+              }) as any
             ]}
           >
             <CarouselContent className="ml-0">
@@ -194,7 +194,7 @@ export function UserDashboard({ user }: UserDashboardProps) {
             Autoplay({
               delay: 4000,
               stopOnInteraction: true,
-            })
+            }) as any
           ]}
         >
           <CarouselContent>

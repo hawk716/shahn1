@@ -1,0 +1,72 @@
+[
+  {
+    "app_name": "Jaib",
+    "display_name": "جيب",
+    "limits": {
+      "min": 100,
+      "max": 1000000
+    },
+    "accounts": [
+      {
+        "currency": "YER-OLD",
+        "account_number": "123456",
+        "account_holder": "مؤسسة الشامل"
+      },
+      {
+        "currency": "SAR",
+        "account_number": "987654",
+        "account_holder": "مؤسسة الشامل - فرع السعودية"
+      },
+      {
+        "currency": "USD",
+        "account_number": "555666",
+        "account_holder": "مؤسسة الشامل - الحساب الدولي"
+      },
+      {
+        "currency": "YER-NEW",
+        "account_number": "777888",
+        "account_holder": "مؤسسة الشامل - الريال الجديد"
+      }
+    ]
+  },
+  {
+    "app_name": "Kuraimi",
+    "display_name": "كريمي إكسبرس",
+    "limits": {
+      "min": 500,
+      "max": 5000000
+    },
+    "accounts": [
+      {
+        "currency": "YER-NEW",
+        "account_number": "112233",
+        "account_holder": "معتصم - حساب الكريمي"
+      },
+      {
+        "currency": "YER-OLD",
+        "account_number": "445566",
+        "account_holder": "معتصم - الريال القديم"
+      }
+    ]
+  },
+  {
+    "app_name": "AlAhly",
+    "display_name": "الأهلي",
+    "limits": {
+      "min": 50,
+      "max": 2000000
+    },
+    "accounts": [
+      {
+        "currency": "SAR",
+        "account_number": "999111",
+        "account_holder": "بنك الأهلي - فرع الرياض"
+      },
+      {
+        "currency": "USD",
+        "account_number": "222333",
+        "account_holder": "بنك الأهلي - الحساب الدولي"
+      }
+    ]
+  }
+]
