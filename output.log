@@ -13,3 +13,1012 @@ You can learn more, including how to opt-out if you'd not like to participate in
 https://nextjs.org/telemetry
 
 ✓ Ready in 477ms
+ HEAD /portal 200 in 3.1s (compile: 3.0s, render: 136ms)
+ GET /portal 200 in 47ms (compile: 4ms, render: 43ms)
+⚠ Cross origin request detected from 3000-ig3ndoqxg8bdchj1xr37d-93725bed.us1.manus.computer to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /api/auth/me 401 in 334ms (compile: 314ms, render: 20ms)
+ GET /api/auth/me 401 in 8ms (compile: 3ms, render: 5ms)
+[v0] Login attempt for user: moatsem
+[v0] Total users in DB: 3
+[v0] Searching for username: moatsem
+[v0] User found: moatsem
+[v0] User found: yes
+ POST /api/auth/login 200 in 181ms (compile: 140ms, render: 41ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 126ms (compile: 115ms, render: 11ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 10ms (compile: 2ms, render: 7ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 13ms (compile: 3ms, render: 10ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 13ms (compile: 4ms, render: 9ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 9ms (compile: 4ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 11ms (compile: 4ms, render: 8ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 10ms (compile: 2ms, render: 7ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 9ms (compile: 2ms, render: 6ms)
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+✓ Compiled in 142ms
+⨯ ./components/user/user-dashboard.tsx:12:1
+Module not found: Can't resolve 'embla-carousel-autoplay'
+[0m [90m 10 |[39m   [33mCarouselItem[39m[33m,[39m
+ [90m 11 |[39m } [36mfrom[39m [32m"@/components/ui/carousel"[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mAutoplay[39m [36mfrom[39m [32m"embla-carousel-autoplay"[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m
+ [90m 14 |[39m [36minterface[39m [33mUserDashboardProps[39m {
+ [90m 15 |[39m   user[33m:[39m { id[33m:[39m number[33m;[39m username[33m:[39m string[33m;[39m balance[33m:[39m number[33m;[39m api_key[33m:[39m string }[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./components/user/user-dashboard.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Client Component Browser]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/user/user-dashboard.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Client Component SSR]
+    ./components/user-portal.tsx [Server Component]
+    ./app/portal/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
