@@ -412,8 +412,25 @@ export async function getUserStats(userId: number) {
   const failLogs = db.verification_logs.filter((l) => l.user_id === userId && !l.success).length;
   const totalAmount = db.payments.filter((p) => p.user_id === userId && p.used).reduce((sum, p) => sum + (p.amount || 0), 0);
 
+  // جلب الإعدادات العامة أو الخاصة بالمستخدم
+  const dynamicMessage = db.settings.find(s => s.key === "user_dashboard_message")?.value || "رمضان كريم";
+  
+  // بنرات إعلانية افتراضية (يمكن تخصيصها من لوحة التحكم لاحقاً)
+  const banners = [
+    { id: 1, image: "https://img.freepik.com/free-vector/ramadan-karem-banner-design_1017-31133.jpg", link: "#" },
+    { id: 2, image: "https://img.freepik.com/free-vector/flat-design-ramadan-sale-horizontal-banner_23-2149313130.jpg", link: "#" }
+  ];
+
   return {
     balance: user?.balance || 0,
+    balances: {
+      yer_old: user?.balance || 0,
+      sar: user?.balance_sar || 0,
+      usd: user?.balance_usd || 0,
+      yer_new: user?.balance_yer_new || 0
+    },
+    dynamicMessage,
+    banners,
     successfulRequests: successLogs,
     failedRequests: failLogs,
     totalAmountProcessed: totalAmount,
