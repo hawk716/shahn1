@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useCallback, useRef } from "react"
-import { RefreshCw, Wallet, CheckCircle2, XCircle, Banknote, LayoutDashboard, Eye, EyeOff } from "lucide-react"
+import { RefreshCw, CheckCircle2, XCircle, Banknote, LayoutDashboard, Eye, EyeOff } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 import Image from "next/image"
 import {
@@ -34,21 +34,33 @@ interface UserStats {
 export function UserDashboard({ user }: UserDashboardProps) {
   const [stats, setStats] = useState<UserStats | null>(null)
   const [loading, setLoading] = useState(true)
-  const [showBalance, setShowBalance] = useState(false)
-  const [currentSlide, setCurrentSlide] = useState(1) // ابدأ من الثاني (الريال اليمني القديم في المنتصف)
-  const autoplayRef = useRef<ReturnType<typeof Autoplay>>(null)
+  const [cardVisibility, setCardVisibility] = useState<Record<number, boolean>>({})
+  const [pullRefreshProgress, setPullRefreshProgress] = useState(0)
+  const [isPulling, setIsPulling] = useState(false)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const startYRef = useRef(0)
   const { t } = useLocale()
 
   const fetchStats = useCallback(async () => {
-    setLoading(true)
     try {
       const res = await fetch("/api/user/stats")
       const data = await res.json()
-      if (data.success) setStats(data.data)
+      if (data.success) {
+        setStats(data.data)
+        // Initialize card visibility
+        setCardVisibility({
+          0: false,
+          1: false,
+          2: false,
+          3: false,
+        })
+      }
     } catch (err) {
       console.error("Failed to fetch stats:", err)
     } finally {
       setLoading(false)
+      setPullRefreshProgress(0)
+      setIsPulling(false)
     }
   }, [])
 
@@ -56,7 +68,37 @@ export function UserDashboard({ user }: UserDashboardProps) {
     fetchStats()
   }, [fetchStats])
 
-  if (loading || !stats) {
+  // Pull-to-Refresh Handler
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (scrollContainerRef.current?.scrollTop === 0) {
+      startYRef.current = e.touches[0].clientY
+    }
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (scrollContainerRef.current?.scrollTop === 0 && startYRef.current > 0) {
+      const currentY = e.touches[0].clientY
+      const diff = currentY - startYRef.current
+      if (diff > 0) {
+        const progress = Math.min(diff / 100, 1)
+        setPullRefreshProgress(progress)
+        setIsPulling(true)
+      }
+    }
+  }
+
+  const handleTouchEnd = () => {
+    if (pullRefreshProgress > 0.5 && !loading) {
+      setLoading(true)
+      fetchStats()
+    } else {
+      setPullRefreshProgress(0)
+      setIsPulling(false)
+    }
+    startYRef.current = 0
+  }
+
+  if (loading && !stats) {
     return (
       <div className="bg-card border border-border rounded-xl p-8 text-center">
         <RefreshCw className="w-5 h-5 text-muted-foreground animate-spin mx-auto" />
@@ -64,6 +106,8 @@ export function UserDashboard({ user }: UserDashboardProps) {
       </div>
     )
   }
+
+  if (!stats) return null
 
   const balanceCards = [
     { label: "ريال سعودي", value: stats.balances.sar, currency: "ر.س", color: "from-amber-600 to-amber-700" },
@@ -80,68 +124,68 @@ export function UserDashboard({ user }: UserDashboardProps) {
     { label: t("failedRequests"), value: stats.failedRequests, icon: XCircle, color: "text-red-400", bg: "bg-red-500/10 border-red-500/20" },
   ]
 
+  const toggleCardVisibility = (index: number) => {
+    setCardVisibility(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }))
+  }
+
   return (
-    <div className="space-y-6 pb-8">
-      {/* Header Section - محسّن */}
-      <div className="flex items-center justify-between px-1">
-        <div className="flex flex-col">
-          <h1 className="text-2xl font-bold text-white">{stats.dynamicMessage}</h1>
-          <p className="text-gray-400 text-xs mt-1">مرحباً بك في لوحة التحكم</p>
-        </div>
-        <button 
-          onClick={fetchStats}
-          disabled={loading}
-          className="p-2 bg-gray-800/50 rounded-full border border-gray-700 hover:bg-gray-700/50 transition-colors"
-        >
-          <RefreshCw className={`w-5 h-5 text-gray-300 ${loading ? "animate-spin" : ""}`} />
-        </button>
-      </div>
-
-      {/* Logo + Balance Slider Section */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between px-1">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 relative">
-              <Image 
-                src="/logo-shamel.jpg" 
-                alt="Al-Shamel Logo" 
-                width={32} 
-                height={32}
-                className="rounded-full"
-              />
-            </div>
-            <span className="text-gray-300 text-xs font-semibold">أرصدتك</span>
+    <div 
+      ref={scrollContainerRef}
+      className="space-y-4 pb-8 relative"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Pull-to-Refresh Indicator */}
+      {isPulling && (
+        <div className="flex flex-col items-center justify-center py-4 px-1">
+          <div className="relative w-8 h-8 flex items-center justify-center">
+            <RefreshCw 
+              className="w-5 h-5 text-primary" 
+              style={{
+                opacity: pullRefreshProgress,
+                transform: `rotate(${pullRefreshProgress * 360}deg)`,
+                transition: 'transform 0.1s linear'
+              }}
+            />
           </div>
-          <button 
-            onClick={() => setShowBalance(!showBalance)}
-            className="p-2 bg-gray-800/50 rounded-full border border-gray-700 hover:bg-gray-700/50 transition-colors"
-          >
-            {showBalance ? <EyeOff className="w-4 h-4 text-gray-300" /> : <Eye className="w-4 h-4 text-gray-300" />}
-          </button>
+          <p className="text-muted-foreground text-xs mt-2">
+            {pullRefreshProgress > 0.5 ? "حرر للتحديث" : "اسحب للأسفل للتحديث"}
+          </p>
         </div>
+      )}
 
-        {/* Balance Carousel - مركزي مع بطاقة في المنتصف */}
-        <div className="relative">
-          <Carousel 
-            className="w-full" 
-            opts={{ 
-              direction: 'rtl',
-              align: 'center',
-              loop: true,
-              startIndex: 1
-            }}
-            plugins={[
-              Autoplay({
-                delay: 5000,
-                stopOnInteraction: false,
-              }) as any
-            ]}
-          >
-            <CarouselContent className="ml-0">
-              {balanceCards.map((card, index) => (
-                <CarouselItem key={index} className="basis-[85%] sm:basis-[75%] md:basis-[65%] pl-3">
-                  <div className={`bg-gradient-to-br ${card.color} rounded-3xl p-6 h-52 flex flex-col justify-between relative overflow-hidden shadow-lg shadow-red-900/30 border border-red-500/20`}>
-                    {/* Background Pattern - خطوط انسيابية مستوحاة من شعار الشامل */}
+      {/* Balance Carousel - 3D-like منحني */}
+      <div className="relative px-1">
+        <Carousel 
+          className="w-full" 
+          opts={{ 
+            direction: 'rtl',
+            align: 'center',
+            loop: true,
+            startIndex: 1
+          }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+              stopOnInteraction: false,
+            }) as any
+          ]}
+        >
+          <CarouselContent className="ml-0">
+            {balanceCards.map((card, index) => (
+              <CarouselItem key={index} className="basis-[90%] sm:basis-[80%] md:basis-[70%] pl-3">
+                <div className="perspective">
+                  <div 
+                    className={`bg-gradient-to-br ${card.color} rounded-3xl p-5 h-40 flex flex-col justify-between relative overflow-hidden shadow-lg shadow-red-900/30 border border-red-500/20 transition-transform duration-300`}
+                    style={{
+                      transform: 'perspective(1000px) rotateY(-5deg) rotateX(2deg)',
+                    }}
+                  >
+                    {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-10">
                       <svg className="w-full h-full" viewBox="0 0 400 300" preserveAspectRatio="none">
                         <path d="M0,50 Q100,30 200,50 T400,50" stroke="white" strokeWidth="2" fill="none" />
@@ -154,35 +198,49 @@ export function UserDashboard({ user }: UserDashboardProps) {
                     
                     <div className="flex justify-between items-start relative z-10">
                       <div className="flex items-center gap-2">
-                        <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                          <Wallet className="w-5 h-5 text-white" />
+                        <div className="w-8 h-8 relative">
+                          <Image 
+                            src="/logo-shamel.jpg" 
+                            alt="Al-Shamel Logo" 
+                            width={32} 
+                            height={32}
+                            className="rounded-full"
+                          />
                         </div>
-                        <span className="text-white/90 text-sm font-medium">حساب</span>
+                        <span className="text-white/90 text-xs font-medium">حساب</span>
                       </div>
-                      <div className="text-right">
-                        <p className="text-white font-bold text-base">{card.label}</p>
-                      </div>
+                      <button
+                        onClick={() => toggleCardVisibility(index)}
+                        className="p-1.5 bg-white/20 rounded-full hover:bg-white/30 transition-colors backdrop-blur-sm"
+                      >
+                        {cardVisibility[index] ? (
+                          <EyeOff className="w-4 h-4 text-white" />
+                        ) : (
+                          <Eye className="w-4 h-4 text-white" />
+                        )}
+                      </button>
                     </div>
 
                     <div className="flex justify-between items-end relative z-10">
                       <div className="flex flex-col">
                         <div className="flex items-center gap-2">
-                          <p className="text-white text-4xl font-bold tracking-tight">
-                            {showBalance ? card.value.toLocaleString() : "••••"}
+                          <p className="text-white text-3xl font-bold tracking-tight">
+                            {cardVisibility[index] ? card.value.toLocaleString() : "••••"}
                           </p>
-                          <span className="text-white/80 text-sm mt-3 font-semibold">{card.currency}</span>
+                          <span className="text-white/80 text-xs mt-2 font-semibold">{card.currency}</span>
                         </div>
                       </div>
+                      <p className="text-white/90 text-xs font-medium text-right">{card.label}</p>
                     </div>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
 
-      {/* Dynamic Banner Section - Auto-play */}
+      {/* Dynamic Banner Section - أصغر */}
       <div className="px-1">
         <Carousel 
           className="w-full" 
@@ -200,20 +258,20 @@ export function UserDashboard({ user }: UserDashboardProps) {
           <CarouselContent>
             {stats.banners.map((banner) => (
               <CarouselItem key={banner.id}>
-                <div className="relative h-36 w-full rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
+                <div className="relative h-24 w-full rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
                   <img 
                     src={banner.image} 
                     alt="Promotion" 
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-red-600 rounded-lg shadow-lg">
-                        <LayoutDashboard className="w-5 h-5 text-white" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center p-4">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 bg-red-600 rounded-lg shadow-lg">
+                        <LayoutDashboard className="w-4 h-4 text-white" />
                       </div>
                       <div>
-                        <p className="text-white font-bold text-sm">خدمة فرقك</p>
-                        <p className="text-white/70 text-xs">قسم فاتورتك بالشكل الذي يناسبك</p>
+                        <p className="text-white font-bold text-xs">خدمة فرقك</p>
+                        <p className="text-white/70 text-[10px]">قسم فاتورتك بالشكل الذي يناسبك</p>
                       </div>
                     </div>
                   </div>
@@ -226,9 +284,9 @@ export function UserDashboard({ user }: UserDashboardProps) {
 
       {/* Stats Section - محسّن وأصغر */}
       <div className="px-1">
-        <h2 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
-          <div className="w-6 h-6 bg-red-600/20 rounded-lg flex items-center justify-center">
-            <LayoutDashboard className="w-4 h-4 text-red-500" />
+        <h2 className="text-white font-bold text-xs mb-2 flex items-center gap-2">
+          <div className="w-5 h-5 bg-red-600/20 rounded-lg flex items-center justify-center">
+            <LayoutDashboard className="w-3 h-3 text-red-500" />
           </div>
           الإحصائيات
         </h2>
@@ -236,13 +294,13 @@ export function UserDashboard({ user }: UserDashboardProps) {
           {statCards.map((card) => {
             const Icon = card.icon
             return (
-              <div key={card.label} className={`p-3 rounded-xl border ${card.bg} flex flex-col gap-2`}>
-                <div className={`flex items-center justify-center w-8 h-8 rounded-lg bg-background/50 ${card.color}`}>
-                  <Icon className="w-4 h-4" />
+              <div key={card.label} className={`p-2 rounded-lg border ${card.bg} flex flex-col gap-1.5`}>
+                <div className={`flex items-center justify-center w-6 h-6 rounded-lg bg-background/50 ${card.color}`}>
+                  <Icon className="w-3 h-3" />
                 </div>
                 <div>
-                  <p className="text-muted-foreground text-[10px] truncate">{card.label}</p>
-                  <p className={`text-base font-bold ${card.color}`}>{card.value}</p>
+                  <p className="text-muted-foreground text-[9px] truncate">{card.label}</p>
+                  <p className={`text-sm font-bold ${card.color}`}>{card.value}</p>
                 </div>
               </div>
             )
@@ -250,17 +308,17 @@ export function UserDashboard({ user }: UserDashboardProps) {
         </div>
       </div>
 
-      {/* Total Processed - بطاقة منفصلة */}
+      {/* Total Processed - بطاقة منفصلة أصغر */}
       <div className="px-1">
-        <div className="p-4 rounded-xl border bg-amber-500/10 border-amber-500/20">
+        <div className="p-3 rounded-lg border bg-amber-500/10 border-amber-500/20">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-background/50 text-amber-400">
-                <Banknote className="w-5 h-5" />
+            <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-background/50 text-amber-400">
+                <Banknote className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-muted-foreground text-xs">{t("totalProcessed")}</p>
-                <p className="text-lg font-bold text-amber-400">{stats.totalAmountProcessed.toLocaleString()} {t("yer")}</p>
+                <p className="text-muted-foreground text-[10px]">{t("totalProcessed")}</p>
+                <p className="text-base font-bold text-amber-400">{stats.totalAmountProcessed.toLocaleString()} {t("yer")}</p>
               </div>
             </div>
           </div>

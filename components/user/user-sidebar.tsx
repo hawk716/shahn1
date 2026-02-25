@@ -42,7 +42,7 @@ export function UserSidebar({ username, activePage, onPageChange, onLogout }: Us
             </div>
             <div className="min-w-0">
               <p className="text-foreground text-sm font-semibold truncate">{username}</p>
-              <p className="text-muted-foreground text-xs">{t("userPortal")}</p>
+              <p className="text-muted-foreground text-xs">رمضان كريم</p>
             </div>
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
@@ -129,7 +129,7 @@ export function UserSidebar({ username, activePage, onPageChange, onLogout }: Us
             </div>
             <div className="min-w-0">
               <p className="text-foreground text-sm font-semibold truncate">{username}</p>
-              <p className="text-muted-foreground text-xs">{t("userPortal")}</p>
+              <p className="text-muted-foreground text-xs">رمضان كريم</p>
             </div>
           </div>
           <Toolbar />
