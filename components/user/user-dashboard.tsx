@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useCallback, useRef } from "react"
-import { RefreshCw, CheckCircle2, XCircle, Banknote, LayoutDashboard, Eye, EyeOff } from "lucide-react"
+import { RefreshCw, CheckCircle2, XCircle, Banknote, LayoutDashboard, Eye, EyeOff, ChevronDown } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 import Image from "next/image"
 import {
@@ -37,13 +37,26 @@ export function UserDashboard({ user }: UserDashboardProps) {
   const [cardVisibility, setCardVisibility] = useState<Record<number, boolean>>({})
   const [pullRefreshProgress, setPullRefreshProgress] = useState(0)
   const [isPulling, setIsPulling] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(true)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const startYRef = useRef(0)
   const { t } = useLocale()
 
+  // Detect dark/light mode
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark') || 
+                     window.matchMedia('(prefers-color-scheme: dark)').matches
+      setIsDarkMode(isDark)
+    }
+    checkDarkMode()
+    window.addEventListener('change', checkDarkMode)
+    return () => window.removeEventListener('change', checkDarkMode)
+  }, [])
+
   const fetchStats = useCallback(async () => {
     try {
-      const res = await fetch("/api/user/stats")
+      const res = await fetch("/api/user/stats", { cache: 'no-store' })
       const data = await res.json()
       if (data.success) {
         setStats(data.data)
@@ -110,10 +123,10 @@ export function UserDashboard({ user }: UserDashboardProps) {
   if (!stats) return null
 
   const balanceCards = [
-    { label: "ريال سعودي", value: stats.balances.sar, currency: "ر.س", color: "from-amber-600 to-amber-700" },
-    { label: "ريال يمني قديم", value: stats.balances.yer_old, currency: "ر.ي", color: "from-red-600 to-red-700" },
-    { label: "ريال يمني جديد", value: stats.balances.yer_new, currency: "ر.ي", color: "from-orange-600 to-orange-700" },
-    { label: "دولار أمريكي", value: stats.balances.usd, currency: "$", color: "from-green-600 to-green-700" },
+    { label: "ريال سعودي", value: stats.balances.sar, currency: "ر.س", color: "from-amber-600 to-amber-700", lightColor: "from-red-500 to-red-600" },
+    { label: "ريال يمني قديم", value: stats.balances.yer_old, currency: "ر.ي", color: "from-red-600 to-red-700", lightColor: "from-red-500 to-red-600" },
+    { label: "ريال يمني جديد", value: stats.balances.yer_new, currency: "ر.ي", color: "from-orange-600 to-orange-700", lightColor: "from-red-500 to-red-600" },
+    { label: "دولار أمريكي", value: stats.balances.usd, currency: "$", color: "from-green-600 to-green-700", lightColor: "from-red-500 to-red-600" },
   ]
 
   const totalRequests = stats.successfulRequests + stats.failedRequests
@@ -131,6 +144,10 @@ export function UserDashboard({ user }: UserDashboardProps) {
     }))
   }
 
+  const getCardColor = (card: typeof balanceCards[0]) => {
+    return isDarkMode ? card.color : card.lightColor
+  }
+
   return (
     <div 
       ref={scrollContainerRef}
@@ -140,23 +157,25 @@ export function UserDashboard({ user }: UserDashboardProps) {
       onTouchEnd={handleTouchEnd}
     >
       {/* Pull-to-Refresh Indicator */}
-      {isPulling && (
-        <div className="flex flex-col items-center justify-center py-4 px-1">
-          <div className="relative w-8 h-8 flex items-center justify-center">
-            <RefreshCw 
-              className="w-5 h-5 text-primary" 
-              style={{
-                opacity: pullRefreshProgress,
-                transform: `rotate(${pullRefreshProgress * 360}deg)`,
-                transition: 'transform 0.1s linear'
-              }}
-            />
+      <div className="sticky top-0 z-10 flex flex-col items-center justify-center py-3 px-1">
+        {isPulling && (
+          <div className="flex flex-col items-center justify-center gap-2">
+            <div className="relative w-8 h-8 flex items-center justify-center">
+              <ChevronDown 
+                className="w-6 h-6 text-primary" 
+                style={{
+                  opacity: pullRefreshProgress,
+                  transform: `translateY(${pullRefreshProgress * 8}px) scaleY(${0.5 + pullRefreshProgress * 0.5})`,
+                  transition: 'transform 0.1s linear'
+                }}
+              />
+            </div>
+            <p className="text-muted-foreground text-xs font-medium">
+              {pullRefreshProgress > 0.5 ? "حرر للتحديث ✓" : "اسحب للأسفل للتحديث ↓"}
+            </p>
           </div>
-          <p className="text-muted-foreground text-xs mt-2">
-            {pullRefreshProgress > 0.5 ? "حرر للتحديث" : "اسحب للأسفل للتحديث"}
-          </p>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Balance Carousel - 3D-like منحني */}
       <div className="relative px-1">
@@ -180,7 +199,7 @@ export function UserDashboard({ user }: UserDashboardProps) {
               <CarouselItem key={index} className="basis-[90%] sm:basis-[80%] md:basis-[70%] pl-3">
                 <div className="perspective">
                   <div 
-                    className={`bg-gradient-to-br ${card.color} rounded-3xl p-5 h-40 flex flex-col justify-between relative overflow-hidden shadow-lg shadow-red-900/30 border border-red-500/20 transition-transform duration-300`}
+                    className={`bg-gradient-to-br ${getCardColor(card)} rounded-3xl p-5 h-40 flex flex-col justify-between relative overflow-hidden shadow-lg shadow-red-900/30 border border-red-500/20 transition-transform duration-300`}
                     style={{
                       transform: 'perspective(1000px) rotateY(-5deg) rotateX(2deg)',
                     }}
@@ -196,7 +215,8 @@ export function UserDashboard({ user }: UserDashboardProps) {
                       </svg>
                     </div>
                     
-                    <div className="flex justify-between items-start relative z-10">
+                    {/* Top Section - محاذاة دقيقة */}
+                    <div className="flex justify-between items-center relative z-10">
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 relative">
                           <Image 
@@ -209,6 +229,11 @@ export function UserDashboard({ user }: UserDashboardProps) {
                         </div>
                         <span className="text-white/90 text-xs font-medium">حساب</span>
                       </div>
+                      <p className="text-white/90 text-xs font-medium text-right">{card.label}</p>
+                    </div>
+
+                    {/* Bottom Section - محاذاة دقيقة */}
+                    <div className="flex justify-between items-end relative z-10">
                       <button
                         onClick={() => toggleCardVisibility(index)}
                         className="p-1.5 bg-white/20 rounded-full hover:bg-white/30 transition-colors backdrop-blur-sm"
@@ -219,18 +244,12 @@ export function UserDashboard({ user }: UserDashboardProps) {
                           <Eye className="w-4 h-4 text-white" />
                         )}
                       </button>
-                    </div>
-
-                    <div className="flex justify-between items-end relative z-10">
-                      <div className="flex flex-col">
-                        <div className="flex items-center gap-2">
-                          <p className="text-white text-3xl font-bold tracking-tight">
-                            {cardVisibility[index] ? card.value.toLocaleString() : "••••"}
-                          </p>
-                          <span className="text-white/80 text-xs mt-2 font-semibold">{card.currency}</span>
-                        </div>
+                      <div className="flex items-center gap-2">
+                        <p className="text-white text-3xl font-bold tracking-tight">
+                          {cardVisibility[index] ? card.value.toLocaleString() : "••••"}
+                        </p>
+                        <span className="text-white/80 text-xs mt-2 font-semibold">{card.currency}</span>
                       </div>
-                      <p className="text-white/90 text-xs font-medium text-right">{card.label}</p>
                     </div>
                   </div>
                 </div>

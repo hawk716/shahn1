@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Send, Wallet, Banknote, Lock, CheckCircle2, AlertCircle, Loader2, X, ShieldCheck, ChevronDown } from "lucide-react"
+import { Send, Wallet, Banknote, Lock, CheckCircle2, AlertCircle, Loader2, X, ShieldCheck, ChevronDown, User } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 
 interface App {
@@ -32,7 +32,7 @@ export function WithdrawalForm({ userId }: { userId: number }) {
   useEffect(() => {
     const loadApps = async () => {
       try {
-        const response = await fetch("/withdrawal-apps.json")
+        const response = await fetch("/withdrawal-apps.json", { cache: 'no-store' })
         if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`)
         const data = await response.json()
         if (data.apps && Array.isArray(data.apps)) {
