@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { Key, Copy, CheckCircle2, RefreshCw, Loader2, Save, Globe } from "lucide-react"
+import { KeyRound, Copy, CheckCircle2, RefreshCw, Loader2, Save, Globe } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 
 interface UserApiKeyProps {
@@ -84,7 +84,7 @@ export function UserApiKey({ user, onUpdate }: UserApiKeyProps) {
       <div className="bg-gradient-to-br from-primary/15 via-primary/5 to-transparent border border-primary/20 rounded-2xl p-6 sm:p-8 shadow-sm">
         <div className="flex items-center gap-4 mb-2">
           <div className="p-3 bg-primary/10 rounded-xl border border-primary/20">
-            <Key className="w-6 h-6 text-primary" />
+            <KeyRound className="w-6 h-6 text-primary" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground">{t("myApiKey")}</h1>
@@ -96,7 +96,7 @@ export function UserApiKey({ user, onUpdate }: UserApiKeyProps) {
       {/* API Key Section */}
       <div className="bg-card border border-border rounded-xl overflow-hidden">
         <div className="p-4 border-b border-border flex items-center gap-2">
-          <Key className="w-4 h-4 text-muted-foreground" />
+          <KeyRound className="w-4 h-4 text-muted-foreground" />
           <h2 className="text-foreground font-semibold text-sm">{t("yourApiKey")}</h2>
         </div>
         <div className="p-4 space-y-4">

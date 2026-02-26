@@ -157,12 +157,12 @@ export const translations = {
     responseSuccess: "الاستجابة (نجاح)",
     responseFail: "الاستجابة (فشل)",
     parameters: "المعاملات",
-    paramName: "اسم المحول",
-    paramAmount: "المبلغ بالريال اليمني",
-    paramApp: "اسم تطبيق الدفع (مثل Jaib)",
-    paramPaymentRef: "معرف الدفع الفريد لتتبع المستخدم في نظامك",
+    paramName: "Parameter Name",
+    paramAmount: "Amount (Yemeni Riyal)",
+    paramApp: "Payment application name (e.g., Jaib)",
+    paramPaymentRef: "Unique payment reference for user tracking."
     example: "مثال",
-    tryIt: "جرب الآن",
+    tryIt: "Try it now"
 
     // Payment page
     confirmPayment: "تأكيد الدفع",
@@ -239,7 +239,7 @@ export const translations = {
     // Tabs - Admin
     payments: "Payments",
     verificationLogs: "Verification Logs",
-    testAndIngest: "Test & Ingest",
+    testAndIngest: "Test and Ingest",
     settings: "Settings",
     telegramSettings: "Telegram Settings",
     users: "Users",
@@ -249,7 +249,7 @@ export const translations = {
     myBalance: "My Balance",
     myApiKey: "API Key",
     withdrawal: "Cash Withdrawal",
-    transfer: "Transfer to another customer",
+    transfer: "Transfer to Client",
     myRequests: "My Requests",
     apiDocs: "API Docs",
 
@@ -306,25 +306,25 @@ export const translations = {
     telegramApiHash: "API Hash",
     telegramChatId: "Chat ID",
     telegramSessionString: "Session String",
-    telegramApiIdHint: "Get it from my.telegram.org",
-    telegramApiHashHint: "Get it from my.telegram.org",
-    telegramChatIdHint: "The chat ID to monitor for messages",
-    telegramSessionStringHint: "Session string for Telegram connection",
+    telegramApiIdHint: "Obtain from my.telegram.org",
+    telegramApiHashHint: "Obtain from my.telegram.org",
+    telegramChatIdHint: "Chat ID to monitor for messages",
+    telegramSessionStringHint: "Session string for Telegram API connection",
     saveTelegramSettings: "Save Telegram Settings",
-    telegramSettingsSaved: "Telegram settings saved",
+    telegramSettingsSaved: "Telegram settings saved successfully",
     telegramConnection: "Telegram Connection",
     withdrawalNotifications: "Withdrawal Notifications",
     botToken: "Bot Token",
     notificationChatId: "Notification Chat ID",
-    botTokenHint: "The bot token that will send withdrawal notifications",
-    notificationChatIdHint: "The ID where withdrawal request notifications will be sent",
+    botTokenHint: "Bot token for sending withdrawal notifications",
+    notificationChatIdHint: "Chat ID for withdrawal request notifications",
 
     // Settings tab
     systemSettings: "System Settings",
-    exchangeRate: "Exchange Rate (credits per 1 YER)",
-    exchangeRateHint: "Example: If rate is 10, a payment of 100 YER = 1,000 credits",
+    exchangeRate: "Exchange Rate (Credits per 1 YER)",
+    exchangeRateHint: "Example: A rate of 10 means 100 YER = 1,000 credits",
     apiKey: "API Key",
-    apiKeyHint: "Used for authenticating API requests (x-api-key header)",
+    apiKeyHint: "Used for authenticating API requests (x-api-key header)."
     saveSettings: "Save Settings",
     settingsSaved: "Settings saved successfully",
     loadingSettings: "Loading settings...",
@@ -333,24 +333,23 @@ export const translations = {
     // User Management
     manageUsers: "Manage Users",
     addUser: "Add User",
-    noUsers: "No users found",
+    noUsers: "No users found.",
     role: "Role",
     admin: "Admin",
     user: "User",
     deleteUser: "Delete",
     confirmDelete: "Are you sure you want to delete this user?",
-    userCreated: "User created successfully",
-    userDeleted: "User deleted",
+    userCreated: "User created successfully."
+    userDeleted: "User deleted successfully."
     createdAt: "Created At",
 
     // User Portal
     currentBalance: "Current Balance",
     credits: "credits",
     yourApiKey: "Your API Key",
-    regenerateKey: "Regenerate Key",
-    regenerateConfirm: "Are you sure? The old key will be deactivated.",
+    regenerateKey: "Regenerate Key    regenerateConfirm: "Are you sure? The old key will be disabled."tivated.",
     copyKey: "Copy",
-    copied: "Copied",
+    copied: "Copied!"
     totalRequests: "Total Requests",
     successfulRequests: "Successful Requests",
     failedRequests: "Failed Requests",
@@ -358,8 +357,7 @@ export const translations = {
     totalProcessed: "Total Processed",
 
     // API Docs
-    apiDocumentation: "API Documentation",
-    apiDocsIntro: "Use this API to verify payments in your application",
+    apiDocumentation: "API Documentation"    apiDocsIntro: "Utilize this API to verify payments within your application."lication",
     endpoint: "Endpoint",
     method: "Method",
     headers: "Headers",
