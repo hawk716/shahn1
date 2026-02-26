@@ -2750,3 +2750,405 @@ https://nextjs.org/docs/messages/module-not-found
  GET /api/auth/me 401 in 9ms (compile: 4ms, render: 5ms)
 ✓ Compiled in 630ms
 ✓ Compiled in 125ms
+ HEAD / 200 in 523ms (compile: 330ms, render: 193ms)
+ HEAD /public/docs 200 in 641ms (compile: 532ms, render: 108ms)
+ GET / 200 in 36ms (compile: 2ms, render: 33ms)
+ GET /public/docs 200 in 50ms (compile: 1759µs, render: 48ms)
+ GET / 200 in 34ms (compile: 2ms, render: 32ms)
+ GET /api/auth/me 401 in 619ms (compile: 593ms, render: 26ms)
+ GET / 200 in 33ms (compile: 3ms, render: 30ms)
+ GET /api/auth/me 401 in 9ms (compile: 2ms, render: 7ms)
+ GET /public/docs 200 in 36ms (compile: 3ms, render: 34ms)
+ GET / 200 in 17ms (compile: 3ms, render: 15ms)
+ GET /api/auth/me 401 in 8ms (compile: 1884µs, render: 6ms)
+ GET /api/auth/me 401 in 7ms (compile: 2ms, render: 5ms)
+[v0] Login attempt for user: moatsem
+[v0] Total users in DB: 3
+[v0] Searching for username: moatsem
+[v0] User found: moatsem
+[v0] User found: yes
+ POST /api/auth/login 200 in 77ms (compile: 37ms, render: 40ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 244ms (compile: 234ms, render: 10ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 8ms (compile: 1814µs, render: 6ms)
+ POST /api/auth/logout 200 in 24ms (compile: 16ms, render: 8ms)
+ GET /public/docs 200 in 56ms (compile: 2ms, render: 54ms)
+ GET / 200 in 34ms (compile: 2ms, render: 32ms)
+ GET /api/auth/me 401 in 7ms (compile: 1961µs, render: 5ms)
+ GET /privacy 404 in 328ms (compile: 303ms, render: 25ms)
+ GET /privacy 404 in 249ms (compile: 6ms, render: 243ms)
+ GET / 200 in 32ms (compile: 3ms, render: 29ms)
+ GET /api/auth/me 401 in 7ms (compile: 2ms, render: 5ms)
+ GET /terms 404 in 20ms (compile: 7ms, render: 14ms)
+ GET /terms 404 in 42ms (compile: 7ms, render: 35ms)
+ GET / 200 in 33ms (compile: 3ms, render: 30ms)
+ GET /api/auth/me 401 in 6ms (compile: 2ms, render: 4ms)
+ GET / 200 in 334ms (compile: 298ms, render: 36ms)
+ GET / 200 in 30ms (compile: 3ms, render: 27ms)
+ GET / 200 in 30ms (compile: 3ms, render: 27ms)
+ GET / 200 in 30ms (compile: 3ms, render: 27ms)
+ GET /api/auth/me 401 in 11ms (compile: 5ms, render: 6ms)
+[v0] Login attempt for user: moatsem
+[v0] Total users in DB: 3
+[v0] Searching for username: moatsem
+[v0] User found: moatsem
+[v0] User found: yes
+ POST /api/auth/login 200 in 35ms (compile: 3ms, render: 32ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 11ms (compile: 3ms, render: 8ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 13ms (compile: 5ms, render: 8ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/logs 200 in 800ms (compile: 793ms, render: 7ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/logs 200 in 9ms (compile: 2ms, render: 7ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 7ms (compile: 1773µs, render: 5ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 6ms (compile: 1585µs, render: 5ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 10ms (compile: 2ms, render: 8ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 7ms (compile: 2ms, render: 5ms)
+ GET / 200 in 40ms (compile: 3ms, render: 37ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/auth/me 200 in 9ms (compile: 2ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 9ms (compile: 3ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 7ms (compile: 2ms, render: 5ms)
+ GET / 200 in 36ms (compile: 3ms, render: 33ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/auth/me 200 in 11ms (compile: 3ms, render: 8ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 9ms (compile: 3ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 7ms (compile: 1964µs, render: 6ms)
+ GET /api/create-payment-page 405 in 321ms (compile: 316ms, render: 5ms)
+ GET /admin 200 in 993ms (compile: 571ms, render: 422ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/auth/me?portal=admin 200 in 9ms (compile: 3ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 410ms (compile: 400ms, render: 9ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 8ms (compile: 2ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/settings 200 in 43ms (compile: 34ms, render: 10ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/settings 200 in 6ms (compile: 2ms, render: 4ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 6ms (compile: 1910µs, render: 5ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 10ms (compile: 5ms, render: 6ms)
+ GET / 200 in 41ms (compile: 3ms, render: 38ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 9ms (compile: 2ms, render: 7ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/stats 200 in 7ms (compile: 1656µs, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/logs 200 in 8ms (compile: 3ms, render: 5ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/logs 200 in 8ms (compile: 2ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/settings 200 in 145ms (compile: 134ms, render: 11ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/user/settings 200 in 9ms (compile: 3ms, render: 6ms)
+ POST /api/auth/logout 200 in 8ms (compile: 2ms, render: 6ms)
+ GET /admin 200 in 34ms (compile: 2ms, render: 32ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/auth/me?portal=admin 200 in 7ms (compile: 2ms, render: 5ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 8ms (compile: 2ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 8ms (compile: 2ms, render: 6ms)
+ POST /api/verify-payment 404 in 203ms (compile: 195ms, render: 8ms)
+ POST /api/create-payment-page 200 in 9ms (compile: 3ms, render: 6ms)
+ GET /pay/6241f0b3-fe7d-4748-b5c4-daa620ba0903 200 in 3.9s (compile: 3.8s, render: 79ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ POST /api/page-verify 200 in 129ms (compile: 121ms, render: 8ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 8ms (compile: 2ms, render: 6ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/admin/stats 200 in 8ms (compile: 2ms, render: 5ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/logs 200 in 303ms (compile: 295ms, render: 8ms)
+[v0] getUserById - Looking for ID: 2 Type: number
+[v0] getUserById - Total users: 3
+[v0] getUserById - User IDs in DB: [
+  { id: 1, username: 'test' },
+  { id: 2, username: 'moatsem' },
+  { id: 3, username: 'nwaf' }
+]
+[v0] getUserById - Found user: { id: 2, username: 'moatsem' }
+ GET /api/logs 200 in 8ms (compile: 2ms, render: 5ms)
+ POST /api/auth/logout 200 in 7ms (compile: 3ms, render: 4ms)
+ GET /portal 200 in 538ms (compile: 69ms, render: 469ms)
