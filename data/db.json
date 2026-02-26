@@ -19,7 +19,7 @@
       "password_hash": "f89f9f756ef44d4350a06c0d285e1170:65521724816e5476de14319019d7db551b10a43527168a38ce78e4b5e79355b8",
       "role": "admin",
       "api_key": "e54636039f47ec79c03cd7ab6ce36ea7dac6cc67b43b382fc83175bd0a598406",
-      "balance": 100,
+      "balance": 0,
       "balance_sar": 50,
       "balance_usd": 10,
       "balance_yer_new": 200,
@@ -110,6 +110,13 @@
       "token": "eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsInRzIjoxNzcxOTg0ODc5NjYzfQ",
       "expires_at": "2026-03-04T02:01:19.665Z",
       "created_at": "2026-02-25T02:01:19.665Z"
+    },
+    {
+      "id": 11,
+      "user_id": 2,
+      "token": "eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsInRzIjoxNzcyMDkzMDM2MDg2fQ",
+      "expires_at": "2026-03-05T08:03:56.086Z",
+      "created_at": "2026-02-26T08:03:56.087Z"
     }
   ],
   "payments": [
@@ -344,18 +351,6 @@
       "accountNumber": "50",
       "status": "pending",
       "createdAt": "2026-02-22T07:21:42.207Z"
-    },
-    {
-      "id": 1772008734392,
-      "userId": 2,
-      "appName": "محفظة جيب",
-      "currency": "ريال يمني (قديم)",
-      "amount": 100,
-      "fee": 0,
-      "totalAmount": 100,
-      "accountNumber": "716213",
-      "status": "pending",
-      "createdAt": "2026-02-25T08:38:54.392Z"
     }
   ]
 }

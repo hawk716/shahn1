@@ -1,11 +1,11 @@
 "use client"
 
 import React from "react"
-
 import { useState } from "react"
-import { User, Loader2, ArrowLeft, ArrowRight } from "lucide-react"
+import { User, Loader2, ArrowLeft, ArrowRight, Shield, Zap, BookOpen, Lock, FileText, AlertCircle } from "lucide-react"
 import { useLocale } from "@/lib/locale-context"
 import { Toolbar } from "@/components/toolbar"
+import Link from "next/link"
 
 // Google Icon SVG
 const GoogleIcon = () => (
@@ -120,129 +120,264 @@ export function UserLogin({ onLogin }: UserLoginProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-sm">
-        <div className="flex justify-center mb-4">
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header */}
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-8">
+            <h1 className="text-xl font-bold text-foreground">الشامل</h1>
+            <nav className="hidden md:flex items-center gap-6">
+              <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                الرئيسية
+              </Link>
+              <Link href="/public/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                الوثائق
+              </Link>
+            </nav>
+          </div>
           <Toolbar />
         </div>
-        <div className="bg-card border border-border rounded-2xl overflow-hidden">
-          <div className="h-1 bg-gradient-to-r from-border via-foreground/20 to-border" />
-          <div className="p-6">
-            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-secondary border border-border mx-auto mb-4">
-              <User className="w-6 h-6 text-muted-foreground" />
-            </div>
-            <h2 className="text-foreground text-lg font-semibold text-center mb-1">
-              {isRegister ? t("registerTitle") : t("userLogin")}
-            </h2>
-            <p className="text-muted-foreground text-sm text-center mb-6">
-              {t("userPortal")}
-            </p>
+      </header>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <div>
-                <label className="block text-muted-foreground text-xs mb-1.5">{t("username")}</label>
-                <input
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm 
-                    placeholder:text-muted-foreground/50 focus:outline-none focus:border-ring transition-colors"
-                  placeholder={t("username")}
-                  required
-                  minLength={3}
-                />
+      {/* Main Content */}
+      <main className="flex-1 flex items-center justify-center p-4 py-12">
+        <div className="w-full max-w-sm">
+          <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-xl">
+            <div className="h-1 bg-gradient-to-r from-primary via-primary/50 to-border" />
+            <div className="p-8">
+              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 mx-auto mb-6">
+                <User className="w-7 h-7 text-primary" />
               </div>
+              <h2 className="text-foreground text-2xl font-bold text-center mb-2">
+                {isRegister ? "إنشاء حساب جديد" : "تسجيل الدخول"}
+              </h2>
+              <p className="text-muted-foreground text-sm text-center mb-8">
+                {isRegister ? "انضم إلى منصتنا الآمنة والموثوقة" : "مرحباً بك في منصة الشامل"}
+              </p>
 
-              {isRegister && (
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-muted-foreground text-xs mb-1.5">البريد الإلكتروني</label>
+                  <label className="block text-muted-foreground text-xs mb-2 font-semibold">{t("username")}</label>
                   <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm 
-                      placeholder:text-muted-foreground/50 focus:outline-none focus:border-ring transition-colors"
-                    placeholder="example@email.com"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg bg-background border border-border text-foreground text-sm 
+                      placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors"
+                    placeholder={t("username")}
                     required
+                    minLength={3}
                   />
-                  <p className="text-muted-foreground text-xs mt-1">سيتم إرسال رابط التحقق إلى بريدك</p>
                 </div>
-              )}
 
-              <div>
-                <label className="block text-muted-foreground text-xs mb-1.5">{t("password")}</label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm 
-                    placeholder:text-muted-foreground/50 focus:outline-none focus:border-ring transition-colors"
-                  placeholder={t("password")}
-                  required
-                  minLength={6}
-                />
-              </div>
+                {isRegister && (
+                  <div>
+                    <label className="block text-muted-foreground text-xs mb-2 font-semibold">البريد الإلكتروني</label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg bg-background border border-border text-foreground text-sm 
+                        placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors"
+                      placeholder="example@email.com"
+                      required
+                    />
+                    <p className="text-muted-foreground text-xs mt-1.5">سيتم إرسال رابط التحقق إلى بريدك</p>
+                  </div>
+                )}
 
-              {isRegister && (
                 <div>
-                  <label className="block text-muted-foreground text-xs mb-1.5">تأكيد كلمة المرور</label>
+                  <label className="block text-muted-foreground text-xs mb-2 font-semibold">{t("password")}</label>
                   <input
                     type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm 
-                      placeholder:text-muted-foreground/50 focus:outline-none focus:border-ring transition-colors"
-                    placeholder="تأكيد كلمة المرور"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg bg-background border border-border text-foreground text-sm 
+                      placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors"
+                    placeholder={t("password")}
                     required
                     minLength={6}
                   />
                 </div>
-              )}
 
-              {error && (
-                <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 text-sm">
-                  {error}
-                </div>
-              )}
+                {isRegister && (
+                  <div>
+                    <label className="block text-muted-foreground text-xs mb-2 font-semibold">تأكيد كلمة المرور</label>
+                    <input
+                      type="password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg bg-background border border-border text-foreground text-sm 
+                        placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-colors"
+                      placeholder="تأكيد كلمة المرور"
+                      required
+                      minLength={6}
+                    />
+                  </div>
+                )}
 
-              {successMessage && (
-                <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 text-sm">
-                  ✓ {successMessage}
+                {error && (
+                  <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 text-sm flex gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                    <span>{error}</span>
+                  </div>
+                )}
+
+                {successMessage && (
+                  <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 text-sm">
+                    ✓ {successMessage}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading || !username.trim() || !password.trim() || (isRegister && !confirmPassword.trim())}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-lg
+                    bg-primary text-primary-foreground font-bold text-sm
+                    hover:bg-primary/90 transition-all duration-200
+                    disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/20"
+                >
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Arrow className="w-4 h-4" />}
+                  {isRegister ? "إنشاء الحساب" : "تسجيل الدخول"}
+                </button>
+              </form>
+
+              {/* Google Auth Button */}
+              <div className="mt-6 relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-border/30"></div>
                 </div>
-              )}
+                <div className="relative flex justify-center text-xs">
+                  <span className="px-2 bg-card text-muted-foreground">أو</span>
+                </div>
+              </div>
 
               <button
-                type="submit"
-                disabled={loading || !username.trim() || !password.trim() || (isRegister && !confirmPassword.trim())}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl
-                  bg-primary text-primary-foreground font-semibold text-sm
-                  hover:bg-primary/90 transition-all duration-200
-                  disabled:opacity-40 disabled:cursor-not-allowed"
+                type="button"
+                onClick={handleGoogleLogin}
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-3 py-3.5 px-4 rounded-lg mt-6
+                  bg-white text-gray-900 font-semibold text-sm border border-gray-200
+                  hover:bg-gray-50 transition-all duration-200
+                  disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
               >
-                {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Arrow className="w-4 h-4" />}
-                {isRegister ? t("register") : t("login")}
+                <GoogleIcon />
+                متابعة باستخدام Google
               </button>
-            </form>
 
-            <div className="mt-4 text-center">
-              <button
-                onClick={() => { 
-                  setIsRegister(!isRegister)
-                  setError("")
-                  setPassword("")
-                  setConfirmPassword("")
-                  setEmail("")
-                }}
-                className="text-muted-foreground text-sm hover:text-foreground transition-colors"
-              >
-                {isRegister ? t("hasAccount") : t("noAccount")}{" "}
-                <span className="text-foreground font-medium">
-                  {isRegister ? t("login") : t("register")}
-                </span>
-              </button>
+              <div className="mt-6 text-center">
+                <button
+                  type="button"
+                  onClick={() => { 
+                    setIsRegister(!isRegister)
+                    setError("")
+                    setPassword("")
+                    setConfirmPassword("")
+                    setEmail("")
+                  }}
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors"
+                >
+                  {isRegister ? "لديك حساب بالفعل؟" : "ليس لديك حساب؟"}{" "}
+                  <span className="text-foreground font-bold hover:text-primary">
+                    {isRegister ? "تسجيل الدخول" : "إنشاء حساب"}
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Landing Section - Features */}
+      <section className="bg-card/30 border-t border-border py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-3">لماذا تختار الشامل؟</h3>
+            <p className="text-muted-foreground text-lg">منصة آمنة وموثوقة لإدارة معاملاتك المالية</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Security Card */}
+            <div className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/10">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 mb-6">
+                <Shield className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="text-foreground font-bold text-lg mb-3">أمان البيانات</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                نظام مشفر بمعايير SSL العالمية مع حماية متقدمة لضمان سلامة بيانات المستخدمين والمعاملات المالية.
+              </p>
+            </div>
+
+            {/* Services Card */}
+            <div className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/10">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 mb-6">
+                <Zap className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="text-foreground font-bold text-lg mb-3">خدماتنا الرقمية</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                مجموعة متكاملة من الأدوات والخدمات المالية الحديثة لتسهيل إدارة أموالك بكفاءة واحترافية.
+              </p>
+            </div>
+
+            {/* Support Card */}
+            <div className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/10">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 mb-6">
+                <BookOpen className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="text-foreground font-bold text-lg mb-3">الدعم والوثائق</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                وثائق شاملة وفريق دعم متخصص جاهز لمساعدتك.{" "}
+                <Link href="/public/docs" className="text-primary font-semibold hover:underline">
+                  اطلع على الوثائق الكاملة
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-card/50 backdrop-blur-sm py-12 px-4 mt-auto">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h4 className="font-bold text-foreground mb-4">الشامل</h4>
+              <p className="text-muted-foreground text-sm">منصة آمنة وموثوقة لإدارة معاملاتك المالية بكل سهولة.</p>
+            </div>
+            <div>
+              <h5 className="font-semibold text-foreground mb-4">الروابط</h5>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">الرئيسية</Link></li>
+                <li><Link href="/public/docs" className="text-muted-foreground hover:text-foreground transition-colors">الوثائق</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-foreground mb-4">القانونية</h5>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">سياسة الخصوصية</Link></li>
+                <li><Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">شروط الاستخدام</Link></li>
+                <li><Link href="/security" className="text-muted-foreground hover:text-foreground transition-colors">مركز الأمان</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-foreground mb-4">الأمان</h5>
+              <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                <Lock className="w-4 h-4 text-primary" />
+                <span>مشفر بـ SSL 256-bit</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground text-sm mt-2">
+                <FileText className="w-4 h-4 text-primary" />
+                <span>معايير دولية معتمدة</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-border/30 pt-8">
+            <p className="text-muted-foreground text-xs text-center">
+              © 2024 منصة الشامل. جميع الحقوق محفوظة. نظام مشفر بمعايير SSL العالمية لضمان أمان معاملاتك.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
