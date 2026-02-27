@@ -40,18 +40,20 @@ export function UserDashboard({ user }: UserDashboardProps) {
   const [isDarkMode, setIsDarkMode] = useState(true)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const startYRef = useRef(0)
-  const { t } = useLocale()
+  const { t, locale, dir } = useLocale()
 
   // Detect dark/light mode
   useEffect(() => {
     const checkDarkMode = () => {
-      const isDark = document.documentElement.classList.contains('dark') || 
-                     window.matchMedia('(prefers-color-scheme: dark)').matches
+      const isDark = document.documentElement.classList.contains('dark')
       setIsDarkMode(isDark)
     }
     checkDarkMode()
-    window.addEventListener('change', checkDarkMode)
-    return () => window.removeEventListener('change', checkDarkMode)
+    
+    const observer = new MutationObserver(checkDarkMode)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    
+    return () => observer.disconnect()
   }, [])
 
   const fetchStats = useCallback(async () => {
@@ -123,10 +125,10 @@ export function UserDashboard({ user }: UserDashboardProps) {
   if (!stats) return null
 
   const balanceCards = [
-    { label: "ريال سعودي", value: stats.balances.sar, currency: "ر.س", color: "from-amber-600 to-amber-700", lightColor: "from-red-500 to-red-600" },
-    { label: "ريال يمني قديم", value: stats.balances.yer_old, currency: "ر.ي", color: "from-red-600 to-red-700", lightColor: "from-red-500 to-red-600" },
-    { label: "ريال يمني جديد", value: stats.balances.yer_new, currency: "ر.ي", color: "from-orange-600 to-orange-700", lightColor: "from-red-500 to-red-600" },
-    { label: "دولار أمريكي", value: stats.balances.usd, currency: "$", color: "from-green-600 to-green-700", lightColor: "from-red-500 to-red-600" },
+    { label: locale === "ع" ? "ريال سعودي" : "Saudi Riyal", value: stats.balances.sar, currency: locale === "ع" ? "ر.س" : "SAR" },
+    { label: locale === "ع" ? "ريال يمني قديم" : "Yemeni Riyal (Old)", value: stats.balances.yer_old, currency: locale === "ع" ? "ر.ي" : "YER" },
+    { label: locale === "ع" ? "ريال يمني جديد" : "Yemeni Riyal (New)", value: stats.balances.yer_new, currency: locale === "ع" ? "ر.ي" : "YER" },
+    { label: locale === "ع" ? "دولار أمريكي" : "US Dollar", value: stats.balances.usd, currency: "$" },
   ]
 
   const totalRequests = stats.successfulRequests + stats.failedRequests
@@ -142,10 +144,6 @@ export function UserDashboard({ user }: UserDashboardProps) {
       ...prev,
       [index]: !prev[index]
     }))
-  }
-
-  const getCardColor = (card: typeof balanceCards[0]) => {
-    return isDarkMode ? card.color : card.lightColor
   }
 
   return (
@@ -171,18 +169,18 @@ export function UserDashboard({ user }: UserDashboardProps) {
               />
             </div>
             <p className="text-muted-foreground text-xs font-medium">
-              {pullRefreshProgress > 0.5 ? "حرر للتحديث ✓" : "اسحب للأسفل للتحديث ↓"}
+              {pullRefreshProgress > 0.5 ? (locale === "ع" ? "حرر للتحديث ✓" : "Release to refresh ✓") : (locale === "ع" ? "اسحب للأسفل للتحديث ↓" : "Pull down to refresh ↓")}
             </p>
           </div>
         )}
       </div>
 
-      {/* Balance Carousel - 3D-like منحني */}
-      <div className="relative px-1">
+      {/* Balance Carousel */}
+      <div className="relative px-1" dir={dir}>
         <Carousel 
           className="w-full" 
           opts={{ 
-            direction: 'rtl',
+            direction: dir,
             align: 'center',
             loop: true,
             startIndex: 1
@@ -194,12 +192,15 @@ export function UserDashboard({ user }: UserDashboardProps) {
             }) as any
           ]}
         >
-          <CarouselContent className="ml-0">
+          <CarouselContent className={dir === 'rtl' ? 'ml-0' : '-ml-4'}>
             {balanceCards.map((card, index) => (
               <CarouselItem key={index} className="basis-[90%] sm:basis-[80%] md:basis-[70%] pl-3">
                 <div className="perspective">
                   <div 
-                    className={`bg-gradient-to-br ${getCardColor(card)} rounded-3xl p-5 h-40 flex flex-col justify-between relative overflow-hidden shadow-lg shadow-red-900/30 border border-red-500/20 transition-transform duration-300`}
+                    className={`rounded-3xl p-5 h-40 flex flex-col justify-between relative overflow-hidden shadow-lg border transition-transform duration-300
+                      ${isDarkMode 
+                        ? 'bg-white text-black border-gray-200 shadow-white/5' 
+                        : 'bg-red-600 text-white border-red-500 shadow-red-900/30'}`}
                     style={{
                       transform: 'perspective(1000px) rotateY(-5deg) rotateX(2deg)',
                     }}
@@ -207,15 +208,15 @@ export function UserDashboard({ user }: UserDashboardProps) {
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-10">
                       <svg className="w-full h-full" viewBox="0 0 400 300" preserveAspectRatio="none">
-                        <path d="M0,50 Q100,30 200,50 T400,50" stroke="white" strokeWidth="2" fill="none" />
-                        <path d="M0,100 Q100,80 200,100 T400,100" stroke="white" strokeWidth="2" fill="none" />
-                        <path d="M0,150 Q100,130 200,150 T400,150" stroke="white" strokeWidth="2" fill="none" />
-                        <circle cx="350" cy="250" r="40" fill="white" opacity="0.1" />
-                        <circle cx="50" cy="200" r="30" fill="white" opacity="0.08" />
+                        <path d="M0,50 Q100,30 200,50 T400,50" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <path d="M0,100 Q100,80 200,100 T400,100" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <path d="M0,150 Q100,130 200,150 T400,150" stroke="currentColor" strokeWidth="2" fill="none" />
+                        <circle cx="350" cy="250" r="40" fill="currentColor" opacity="0.1" />
+                        <circle cx="50" cy="200" r="30" fill="currentColor" opacity="0.08" />
                       </svg>
                     </div>
                     
-                    {/* Top Section - محاذاة دقيقة */}
+                    {/* Top Section */}
                     <div className="flex justify-between items-center relative z-10">
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 relative">
@@ -227,28 +228,28 @@ export function UserDashboard({ user }: UserDashboardProps) {
                             className="rounded-full"
                           />
                         </div>
-                        <span className="text-white/90 text-xs font-medium">حساب</span>
+                        <span className="opacity-90 text-xs font-medium">{locale === "ع" ? "حساب" : "Account"}</span>
                       </div>
-                      <p className="text-white/90 text-xs font-medium text-right">{card.label}</p>
+                      <p className="opacity-90 text-xs font-medium">{card.label}</p>
                     </div>
 
-                    {/* Bottom Section - محاذاة دقيقة */}
+                    {/* Bottom Section */}
                     <div className="flex justify-between items-end relative z-10">
                       <button
                         onClick={() => toggleCardVisibility(index)}
-                        className="p-1.5 bg-white/20 rounded-full hover:bg-white/30 transition-colors backdrop-blur-sm"
+                        className={`p-1.5 rounded-full transition-colors backdrop-blur-sm ${isDarkMode ? 'bg-black/10 hover:bg-black/20' : 'bg-white/20 hover:bg-white/30'}`}
                       >
                         {cardVisibility[index] ? (
-                          <EyeOff className="w-4 h-4 text-white" />
+                          <EyeOff className="w-4 h-4" />
                         ) : (
-                          <Eye className="w-4 h-4 text-white" />
+                          <Eye className="w-4 h-4" />
                         )}
                       </button>
                       <div className="flex items-center gap-2">
-                        <p className="text-white text-3xl font-bold tracking-tight">
+                        <p className="text-3xl font-bold tracking-tight">
                           {cardVisibility[index] ? card.value.toLocaleString() : "••••"}
                         </p>
-                        <span className="text-white/80 text-xs mt-2 font-semibold">{card.currency}</span>
+                        <span className="opacity-80 text-xs mt-2 font-semibold">{card.currency}</span>
                       </div>
                     </div>
                   </div>
@@ -259,13 +260,14 @@ export function UserDashboard({ user }: UserDashboardProps) {
         </Carousel>
       </div>
 
-      {/* Dynamic Banner Section - أصغر */}
-      <div className="px-1">
+      {/* Dynamic Banner Section */}
+      <div className="px-1" dir={dir}>
         <Carousel 
           className="w-full" 
           opts={{ 
             loop: true,
-            align: 'center'
+            align: 'center',
+            direction: dir
           }}
           plugins={[
             Autoplay({
@@ -274,10 +276,10 @@ export function UserDashboard({ user }: UserDashboardProps) {
             }) as any
           ]}
         >
-          <CarouselContent>
+          <CarouselContent className={dir === 'rtl' ? 'ml-0' : '-ml-4'}>
             {stats.banners.map((banner) => (
-              <CarouselItem key={banner.id}>
-                <div className="relative h-24 w-full rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
+              <CarouselItem key={banner.id} className="pl-4">
+                <div className="relative h-24 w-full rounded-2xl overflow-hidden border border-border shadow-lg">
                   <img 
                     src={banner.image} 
                     alt="Promotion" 
@@ -289,8 +291,8 @@ export function UserDashboard({ user }: UserDashboardProps) {
                         <LayoutDashboard className="w-4 h-4 text-white" />
                       </div>
                       <div>
-                        <p className="text-white font-bold text-xs">خدمة فرقك</p>
-                        <p className="text-white/70 text-[10px]">قسم فاتورتك بالشكل الذي يناسبك</p>
+                        <p className="text-white font-bold text-xs">{locale === "ع" ? "خدمة الشامل" : "Al-Shamel Service"}</p>
+                        <p className="text-white/70 text-[10px]">{locale === "ع" ? "إدارة مالية ذكية" : "Smart Financial Management"}</p>
                       </div>
                     </div>
                   </div>
@@ -301,46 +303,24 @@ export function UserDashboard({ user }: UserDashboardProps) {
         </Carousel>
       </div>
 
-      {/* Stats Section - محسّن وأصغر */}
-      <div className="px-1">
-        <h2 className="text-white font-bold text-xs mb-2 flex items-center gap-2">
-          <div className="w-5 h-5 bg-red-600/20 rounded-lg flex items-center justify-center">
-            <LayoutDashboard className="w-3 h-3 text-red-500" />
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 px-1">
+        {statCards.map((stat, index) => (
+          <div key={index} className={`p-4 rounded-2xl border ${stat.bg} flex items-center justify-between`}>
+            <div>
+              <p className="text-muted-foreground text-xs font-medium mb-1">{stat.label}</p>
+              <p className="text-xl font-bold text-foreground">{stat.value.toLocaleString()}</p>
+            </div>
+            <stat.icon className={`w-8 h-8 ${stat.color} opacity-80`} />
           </div>
-          الإحصائيات
-        </h2>
-        <div className="grid grid-cols-3 gap-2">
-          {statCards.map((card) => {
-            const Icon = card.icon
-            return (
-              <div key={card.label} className={`p-2 rounded-lg border ${card.bg} flex flex-col gap-1.5`}>
-                <div className={`flex items-center justify-center w-6 h-6 rounded-lg bg-background/50 ${card.color}`}>
-                  <Icon className="w-3 h-3" />
-                </div>
-                <div>
-                  <p className="text-muted-foreground text-[9px] truncate">{card.label}</p>
-                  <p className={`text-sm font-bold ${card.color}`}>{card.value}</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
+        ))}
       </div>
 
-      {/* Total Processed - بطاقة منفصلة أصغر */}
+      {/* Message Section */}
       <div className="px-1">
-        <div className="p-3 rounded-lg border bg-amber-500/10 border-amber-500/20">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-background/50 text-amber-400">
-                <Banknote className="w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-muted-foreground text-[10px]">{t("totalProcessed")}</p>
-                <p className="text-base font-bold text-amber-400">{stats.totalAmountProcessed.toLocaleString()} {t("yer")}</p>
-              </div>
-            </div>
-          </div>
+        <div className="bg-card border border-border rounded-2xl p-4 flex items-center gap-3">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shrink-0" />
+          <p className="text-sm text-foreground font-medium">{stats.dynamicMessage}</p>
         </div>
       </div>
     </div>
